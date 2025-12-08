@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqnewhva6687w"]
+
+[ext_resource type="Script" uid="uid://dvj2keyyo5voj" path="res://Scripts/node_3d.gd" id="1_wosnj"]
+[ext_resource type="PackedScene" uid="uid://cd2o6ftqp6714" path="res://Meshes/ps1computerdesk1.glb" id="2_t3l2h"]
+[ext_resource type="PackedScene" uid="uid://beiycp3plild7" path="res://Meshes/computerwalls.glb" id="3_a8auw"]
+[ext_resource type="PackedScene" uid="uid://itpbp5krefqb" path="res://Meshes/computercarpet.glb" id="4_ifh66"]
+
+[node name="PracticeDesk" type="Node3D"]
+script = ExtResource("1_wosnj")
+
+[node name="ps1computerdesk1" parent="." instance=ExtResource("2_t3l2h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.100815296, 0, -0.12164402)
+
+[node name="Cube" parent="ps1computerdesk1" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.029189467, 0, 0.29930425)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18424395, 1.9663429, 1.8038777)
+
+[node name="computerwalls" parent="." instance=ExtResource("3_a8auw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38768446, 0, -1.5376201)
+
+[node name="computercarpet" parent="." instance=ExtResource("4_ifh66")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.60058117, 0, -1.3304234)
+
+[editable path="ps1computerdesk1"]

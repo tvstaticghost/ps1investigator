@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://g7tuus1vr6ai"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qlqgh"]
+bg_color = Color(0.79607844, 0.7294118, 0.8039216, 1)
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_nc5mq"]
+Panel/styles/panel = SubResource("StyleBoxFlat_qlqgh")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nc5mq"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_ia074"]
+Panel/styles/panel = SubResource("StyleBoxFlat_nc5mq")
+
+[node name="StartMenu" type="Panel"]
+z_index = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -396.0
+offset_right = 227.0
+offset_bottom = -40.0
+grow_vertical = 0
+theme = SubResource("Theme_nc5mq")
+
+[node name="StartBackground" type="Panel" parent="."]
+z_as_relative = false
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 226.0
+offset_bottom = 356.0
+theme = SubResource("Theme_ia074")

@@ -1,0 +1,37 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://hy6j8q5qcw0v"]
+
+[ext_resource type="FontFile" uid="uid://qbqiwhmhnfm2" path="res://Fonts/DMSans-VariableFont_opsz,wght.ttf" id="1_0hbcj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5o2l7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbwg7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_punyt"]
+bg_color = Color(0.3764706, 0.48235294, 0.56078434, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.7067871, 0.62209356, 0.71696275, 1)
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0, 0, 0, 1)
+Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 27
+Button/styles/focus = SubResource("StyleBoxFlat_5o2l7")
+Button/styles/hover = SubResource("StyleBoxFlat_5o2l7")
+Button/styles/normal = SubResource("StyleBoxFlat_hbwg7")
+Button/styles/pressed = SubResource("StyleBoxFlat_5o2l7")
+Label/font_sizes/font_size = 18
+Label/fonts/font = ExtResource("1_0hbcj")
+Panel/styles/panel = SubResource("StyleBoxFlat_punyt")

@@ -1,0 +1,118 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqrpakwpbjrxp"]
+
+[ext_resource type="Script" uid="uid://dwktkrgo2cu64" path="res://Scripts/notepad_ui.gd" id="1_at8eu"]
+[ext_resource type="Theme" uid="uid://bseq8ct27g434" path="res://Themes/panel_background.tres" id="2_rhsmg"]
+[ext_resource type="Theme" uid="uid://hy6j8q5qcw0v" path="res://Themes/top_bar.tres" id="3_sdjma"]
+[ext_resource type="Texture2D" uid="uid://cwdhu5ktimnnt" path="res://Icons/icons8-close-24.png" id="4_3yf5c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_at8eu"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_rhsmg"]
+Panel/styles/panel = SubResource("StyleBoxFlat_at8eu")
+
+[node name="NotePadApplication" type="Panel" groups=["NotesApp"]]
+anchors_preset = -1
+anchor_left = 0.326
+anchor_top = 0.26200002
+anchor_right = 0.62200004
+anchor_bottom = 0.725
+offset_left = -0.55200195
+offset_top = 0.22398376
+offset_right = -0.5440674
+offset_bottom = 0.19998169
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_rhsmg")
+script = ExtResource("1_at8eu")
+
+[node name="PanelBackground" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.99300003
+offset_top = -1.0
+offset_right = -2.0
+offset_bottom = 0.099975586
+theme = SubResource("Theme_rhsmg")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.003
+anchor_right = 0.99500006
+anchor_bottom = 0.13700001
+offset_left = -0.023000002
+offset_right = -0.29501343
+offset_bottom = -3.1000023
+theme = ExtResource("3_sdjma")
+
+[node name="CloseButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.48700002
+anchor_right = 1.0
+anchor_bottom = 0.48700002
+offset_left = -27.294983
+offset_top = -11.967009
+offset_right = -10.294983
+offset_bottom = 13.0329895
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+icon = ExtResource("4_3yf5c")
+autowrap_trim_flags = 192
+expand_icon = true
+
+[node name="MinimizeButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -48.294983
+offset_top = -30.500008
+offset_right = -26.294983
+offset_bottom = 11.499992
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("3_sdjma")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "_"
+autowrap_trim_flags = 192
+expand_icon = true
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.21900001
+anchor_right = 0.34600002
+anchor_bottom = 0.804
+offset_left = 12.0
+offset_top = 0.4859972
+offset_right = -104.85009
+offset_bottom = -0.49900818
+grow_vertical = 2
+theme = ExtResource("3_sdjma")
+text = "Notes"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.002
+anchor_top = 0.127
+anchor_right = 1.0
+anchor_bottom = 0.99300003
+offset_left = 0.19999999
+offset_top = -0.10000229
+offset_right = -2.0
+offset_bottom = 0.099975586
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_rhsmg")
+text = "Type here..."
+
+[connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Panel/MinimizeButton" to="." method="_on_minimize_button_pressed"]
