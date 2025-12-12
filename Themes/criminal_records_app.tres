@@ -1,0 +1,28 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://d4de1kekhdg4m"]
+
+[ext_resource type="FontFile" uid="uid://qbqiwhmhnfm2" path="res://Fonts/DMSans-VariableFont_opsz,wght.ttf" id="1_v28yv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pq13w"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v28yv"]
+content_margin_left = 5.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[resource]
+Button/styles/normal = SubResource("StyleBoxFlat_pq13w")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_v28yv")
+LineEdit/colors/caret_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/constants/caret_width = 1
+LineEdit/font_sizes/font_size = 16
+LineEdit/fonts/font = ExtResource("1_v28yv")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_v28yv")

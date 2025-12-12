@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://lifut8kr4jf0"]
+
+[ext_resource type="PackedScene" uid="uid://cd2o6ftqp6714" path="res://Meshes/ps1computerdesk1.glb" id="2_1f2jq"]
+[ext_resource type="PackedScene" uid="uid://dewgu43thfjs6" path="res://Meshes/ps1chairbad.glb" id="3_la32j"]
+[ext_resource type="PackedScene" uid="uid://b02idr083xwcl" path="res://Scenes/player.tscn" id="4_1f2jq"]
+[ext_resource type="PackedScene" uid="uid://cgbndt6phmy3m" path="res://Scenes/ps_1_livingroom.tscn" id="4_la32j"]
+[ext_resource type="PackedScene" uid="uid://36blbxnid7g2" path="res://Scenes/UIScenes/interact_overlay.tscn" id="5_la32j"]
+
+[node name="LivingRoom" type="Node3D"]
+
+[node name="ps1computerdesk1" parent="." instance=ExtResource("2_1f2jq")]
+transform = Transform3D(-1.5732633e-08, 0, -0.35992068, 0, 0.35992068, 0, 0.35992068, 0, -1.5732633e-08, 2.840365, 0.48002893, 1.095536)
+
+[node name="ps1chairbad" parent="." instance=ExtResource("3_la32j")]
+transform = Transform3D(0.957168, 0, -0.289533, 0, 1, 0, 0.289533, 0, 0.957168, 0.6492022, 0, -2.1195183)
+
+[node name="Player" parent="." instance=ExtResource("4_1f2jq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.90431, 1.6022909, 1.5833035)
+
+[node name="ps1livingroom" parent="." instance=ExtResource("4_la32j")]
+
+[node name="CollisionShape3D" parent="ps1livingroom/Lamp/StaticBody3D" index="0" groups=["Lamp"]]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InteractOverlay" parent="CanvasLayer" instance=ExtResource("5_la32j")]
+visible = false
+
+[editable path="ps1livingroom"]

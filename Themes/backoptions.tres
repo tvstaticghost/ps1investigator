@@ -1,0 +1,28 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://c8eulcvg7i8il"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_en5tu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_40b82"]
+bg_color = Color(0.8192515, 0.82063997, 0.88501984, 1)
+border_width_left = 3
+border_width_right = 3
+border_color = Color(0.7058824, 0.62352943, 0.7176471, 1)
+
+[resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0.9490196, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_color = Color(0, 0, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0, 0, 0, 1)
+Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Button/styles/disabled = SubResource("StyleBoxFlat_en5tu")
+Button/styles/focus = SubResource("StyleBoxFlat_en5tu")
+Button/styles/hover = SubResource("StyleBoxFlat_en5tu")
+Button/styles/normal = SubResource("StyleBoxFlat_en5tu")
+Button/styles/pressed = SubResource("StyleBoxFlat_en5tu")
+Panel/styles/panel = SubResource("StyleBoxFlat_40b82")

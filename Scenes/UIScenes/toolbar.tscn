@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://70fo7kt7gmgc"]
+[gd_scene load_steps=11 format=3 uid="uid://70fo7kt7gmgc"]
 
 [ext_resource type="Theme" uid="uid://clw6sk718gggc" path="res://Themes/toolbar.tres" id="1_vmn2u"]
 [ext_resource type="FontFile" uid="uid://qbqiwhmhnfm2" path="res://Fonts/DMSans-VariableFont_opsz,wght.ttf" id="2_5g788"]
@@ -11,12 +11,6 @@ border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Theme" id="Theme_qlqgh"]
 Panel/styles/panel = SubResource("StyleBoxFlat_5g788")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5lmx"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="Theme" id="Theme_uw08c"]
-Panel/styles/panel = SubResource("StyleBoxFlat_w5lmx")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uw08c"]
 bg_color = Color(1, 1, 1, 1)
@@ -72,17 +66,6 @@ offset_right = 87.0
 offset_bottom = 25.0
 mouse_filter = 2
 theme = SubResource("Theme_qlqgh")
-
-[node name="ButtonBackgroundBlack" type="Panel" parent="Button"]
-visible = false
-z_as_relative = false
-layout_mode = 0
-offset_left = -1.0
-offset_top = -1.0
-offset_right = 86.0
-offset_bottom = 27.0
-mouse_filter = 2
-theme = SubResource("Theme_uw08c")
 
 [node name="BottomBackground" type="Panel" parent="Button"]
 z_as_relative = false

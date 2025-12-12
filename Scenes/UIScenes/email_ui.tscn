@@ -1,0 +1,399 @@
+[gd_scene load_steps=15 format=3 uid="uid://dsy814gjau47n"]
+
+[ext_resource type="Script" uid="uid://emb6jjpgr2lj" path="res://Scripts/email_ui.gd" id="1_iuc5o"]
+[ext_resource type="Theme" uid="uid://hy6j8q5qcw0v" path="res://Themes/top_bar.tres" id="2_gdxu7"]
+[ext_resource type="Texture2D" uid="uid://cwdhu5ktimnnt" path="res://Icons/icons8-close-24.png" id="3_f0msf"]
+[ext_resource type="Theme" uid="uid://cjdgl7gqgqsxc" path="res://Themes/email_ui.tres" id="4_gdxu7"]
+[ext_resource type="Texture2D" uid="uid://djrlkldprgirc" path="res://Icons/icons8-folder-20.png" id="5_f0msf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6iy1x"]
+bg_color = Color(0.7058824, 0.62352943, 0.7176471, 1)
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_6rp2l"]
+Panel/styles/panel = SubResource("StyleBoxFlat_6iy1x")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_40b82"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_yeuse"]
+Panel/styles/panel = SubResource("StyleBoxFlat_40b82")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdxu7"]
+bg_color = Color(0.79607844, 0.7294118, 0.8039216, 1)
+
+[sub_resource type="Theme" id="Theme_f0msf"]
+Panel/styles/panel = SubResource("StyleBoxFlat_gdxu7")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0msf"]
+bg_color = Color(0.67242116, 0.5835169, 0.6831765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6rp2l"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_y8d5j"]
+Panel/styles/panel = SubResource("StyleBoxFlat_6rp2l")
+
+[node name="Email_UI" type="Panel"]
+anchors_preset = -1
+anchor_left = 0.569
+anchor_right = 0.873
+anchor_bottom = 0.41200003
+offset_left = -276.48804
+offset_top = 105.0
+offset_right = -85.696045
+offset_bottom = 262.024
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_6rp2l")
+script = ExtResource("1_iuc5o")
+
+[node name="PanelBackground" type="Panel" parent="."]
+z_index = -1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.99300003
+offset_left = -2.0
+offset_top = -2.0
+offset_bottom = 1.868988
+mouse_filter = 2
+theme = SubResource("Theme_yeuse")
+
+[node name="TopBar" type="Panel" parent="PanelBackground"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.99500006
+anchor_bottom = 0.096
+offset_left = 2.0879774
+offset_top = 2.0
+offset_right = 0.49493408
+offset_bottom = 0.20950317
+theme = ExtResource("2_gdxu7")
+
+[node name="Label" type="Label" parent="PanelBackground/TopBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.035
+anchor_top = 0.093
+anchor_right = 0.149
+anchor_bottom = 0.90000004
+offset_left = 0.041223526
+offset_top = 0.012932539
+offset_right = 0.13871765
+offset_bottom = -0.007516861
+grow_vertical = 2
+theme = ExtResource("2_gdxu7")
+theme_override_font_sizes/font_size = 20
+text = "Electronic Mail"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="PanelBackground/TopBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.48700002
+anchor_right = 1.0
+anchor_bottom = 0.48700002
+offset_left = -27.294983
+offset_top = -11.091904
+offset_right = -10.294983
+offset_bottom = 13.0329895
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+icon = ExtResource("3_f0msf")
+autowrap_trim_flags = 192
+expand_icon = true
+
+[node name="MinimizeButton" type="Button" parent="PanelBackground/TopBar"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -48.294983
+offset_top = -30.500008
+offset_right = -26.294983
+offset_bottom = 11.499992
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("2_gdxu7")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "_"
+autowrap_trim_flags = 192
+expand_icon = true
+
+[node name="FolderPanel" type="Panel" parent="PanelBackground"]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.014
+anchor_top = 0.13800001
+anchor_right = 0.324
+anchor_bottom = 0.49100003
+offset_left = 0.05799961
+offset_top = -0.12200165
+offset_right = 0.067993164
+offset_bottom = -0.07901001
+theme = ExtResource("4_gdxu7")
+
+[node name="FolderDescPanel" type="Panel" parent="PanelBackground/FolderPanel"]
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.010000001
+anchor_right = 0.99600005
+anchor_bottom = 0.19000001
+offset_left = 1.3399963
+offset_top = -0.014673829
+offset_right = 0.6733551
+offset_bottom = -1.0206242
+scale = Vector2(0.9960442, 1)
+theme = SubResource("Theme_f0msf")
+theme_override_styles/panel = SubResource("StyleBoxFlat_f0msf")
+
+[node name="FolderLabel" type="Label" parent="PanelBackground/FolderPanel/FolderDescPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.998
+anchor_bottom = 1.0
+offset_right = -64.26091
+theme = ExtResource("4_gdxu7")
+text = "Mail Folder"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BottomWhiteBorder" type="Panel" parent="PanelBackground/FolderPanel/FolderDescPanel"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.038000003
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -0.011999965
+offset_right = 0.6632385
+offset_bottom = 0.96299934
+theme = SubResource("Theme_y8d5j")
+
+[node name="BottomWhiteBorder2" type="Panel" parent="PanelBackground/FolderPanel/FolderDescPanel"]
+self_modulate = Color(0, 0, 0, 1)
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.038000003
+anchor_right = 1.0020001
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -0.011999965
+offset_right = -0.67474365
+theme = SubResource("Theme_y8d5j")
+
+[node name="TextureRect" type="TextureRect" parent="PanelBackground/FolderPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.3399963
+offset_top = 30.485657
+offset_right = -145.0
+offset_bottom = -98.54739
+texture = ExtResource("5_f0msf")
+
+[node name="InboxLabel" type="Label" parent="PanelBackground/FolderPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 26.339996
+offset_top = 31.485657
+offset_right = -79.0
+offset_bottom = -97.54739
+theme = ExtResource("4_gdxu7")
+text = "Inbox"
+
+[node name="TextureRect2" type="TextureRect" parent="PanelBackground/FolderPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.3399963
+offset_top = 55.485657
+offset_right = -145.0
+offset_bottom = -73.54739
+texture = ExtResource("5_f0msf")
+
+[node name="InboxLabel2" type="Label" parent="PanelBackground/FolderPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.344
+anchor_top = 0.37600002
+anchor_right = 0.344
+anchor_bottom = 0.5
+offset_left = -31.568966
+offset_top = 0.07322693
+offset_right = 31.431034
+offset_bottom = 2.4691315
+theme = ExtResource("4_gdxu7")
+text = "Deleted"
+
+[node name="EmailListPanel" type="Panel" parent="PanelBackground"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33400002
+anchor_top = 0.13800001
+anchor_right = 0.989
+anchor_bottom = 0.49100003
+offset_left = 0.09799194
+offset_top = -0.12200165
+offset_right = -0.027038574
+offset_bottom = -0.07901001
+theme = ExtResource("4_gdxu7")
+
+[node name="SenderPanel" type="Panel" parent="PanelBackground/EmailListPanel"]
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.010000001
+anchor_right = 0.99600005
+anchor_bottom = 0.19000001
+offset_left = 0.539978
+offset_top = -0.014673829
+offset_right = -184.91061
+offset_bottom = -1.0206242
+scale = Vector2(0.9960442, 1)
+theme = SubResource("Theme_f0msf")
+theme_override_styles/panel = SubResource("StyleBoxFlat_f0msf")
+
+[node name="SenderLabel" type="Label" parent="PanelBackground/EmailListPanel/SenderPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.998
+anchor_bottom = 1.0
+offset_right = -98.395905
+theme = ExtResource("4_gdxu7")
+text = "Sender"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BottomWhiteBorder" type="Panel" parent="PanelBackground/EmailListPanel/SenderPanel"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.038000003
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -0.011999965
+offset_right = 0.6632385
+offset_bottom = 0.96299934
+theme = SubResource("Theme_y8d5j")
+
+[node name="BottomWhiteBorder2" type="Panel" parent="PanelBackground/EmailListPanel/SenderPanel"]
+self_modulate = Color(0, 0, 0, 1)
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.038000003
+anchor_right = 1.0020001
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -0.011999965
+offset_right = -0.67474365
+theme = SubResource("Theme_y8d5j")
+
+[node name="SubjectPanel" type="Panel" parent="PanelBackground/EmailListPanel"]
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.010000001
+anchor_right = 0.99600005
+anchor_bottom = 0.19000001
+offset_left = 172.53998
+offset_top = -0.014673829
+offset_right = 0.1409607
+offset_bottom = -1.0206242
+scale = Vector2(0.9960442, 1)
+theme = SubResource("Theme_f0msf")
+theme_override_styles/panel = SubResource("StyleBoxFlat_f0msf")
+
+[node name="SubjectLabel" type="Label" parent="PanelBackground/EmailListPanel/SubjectPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.998
+anchor_bottom = 1.0
+offset_right = -109.06741
+theme = ExtResource("4_gdxu7")
+text = "Subject"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BottomWhiteBorder" type="Panel" parent="PanelBackground/EmailListPanel/SubjectPanel"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.038000003
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -0.011999965
+offset_right = 0.6632385
+offset_bottom = 0.96299934
+theme = SubResource("Theme_y8d5j")
+
+[node name="BottomWhiteBorder2" type="Panel" parent="PanelBackground/EmailListPanel/SubjectPanel"]
+self_modulate = Color(0, 0, 0, 1)
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.038000003
+anchor_right = 1.0020001
+anchor_bottom = 1.0
+offset_left = -1.0039673
+offset_top = -0.011999965
+offset_right = -0.3634491
+theme = SubResource("Theme_y8d5j")
+
+[node name="SenderText" type="TextEdit" parent="PanelBackground/EmailListPanel"]
+layout_mode = 0
+offset_left = 7.539978
+offset_top = 28.485657
+offset_right = 167.53998
+offset_bottom = 143.48566
+theme = ExtResource("4_gdxu7")
+text = "Ray Arnold"
+
+[node name="SubjectText" type="TextEdit" parent="PanelBackground/EmailListPanel"]
+layout_mode = 0
+offset_left = 178.53998
+offset_top = 27.485657
+offset_right = 351.53998
+offset_bottom = 143.48566
+text = "Test Subject :)"
+
+[node name="TextEdit" type="TextEdit" parent="PanelBackground"]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.015000001
+anchor_top = 0.50100005
+anchor_right = 0.989
+anchor_bottom = 0.98600006
+offset_left = -0.14500046
+offset_top = 0.124572754
+offset_right = -0.027038574
+offset_bottom = 0.047576904
+theme = ExtResource("4_gdxu7")
+
+[connection signal="pressed" from="PanelBackground/TopBar/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="PanelBackground/TopBar/MinimizeButton" to="." method="_on_minimize_button_pressed"]
