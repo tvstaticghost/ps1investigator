@@ -6,6 +6,16 @@ var people = [
 	{"first": "bob", "last": "saffron", "crime": "arsen"},
 ]
 
+var emails = {
+	"inbox": [
+		{"sender": "ray arnold", "subject": "test subject", "date": "12-12-2025", "from": "ray arnold <ray.m.arnold@gmail.com>",  "to": "player@gmail.com", "message": "This is a test email to see if my container is actually scrollable. If it is not scrollable I will be very sad. It takes so long to create UI that doesn't look like utter dog shit in Godot that I am getting a little frustrated. Maybe I should start working on the assets and logic instead to take a break."},
+		{"sender": "sofia dipaolo", "subject": "sup bitch", "date": "12-13-2025","from": "sofia diapolo <sofia@gmail.com>", "to": "player@gmail.com", "message": "Whats up little bitch!"}
+	],
+	"deleted": [
+		{"sender": "the killer", "subject": "so...", "date": "12-13-2025","from": "the killer <thekiller@gmail.com>", "to": "player@gmail.com", "message": "Dear Player,\n I'm gonna have to kill you dude. Nothing personal..."}
+	]
+}
+
 func find_person(first_name: String, last_name: String):
 	var target_people = []
 	for person in people:
@@ -16,3 +26,11 @@ func find_person(first_name: String, last_name: String):
 			target_people.append(person)
 	
 	return target_people
+
+func get_inbox_emails():
+	print(emails["inbox"])
+	return emails["inbox"]
+
+func get_deleted_emails():
+	print(emails["deleted"])
+	return emails["deleted"]

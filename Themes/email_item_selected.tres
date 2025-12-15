@@ -1,0 +1,14 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://8pdtbs20fgdk"]
+
+[ext_resource type="FontFile" uid="uid://qbqiwhmhnfm2" path="res://Fonts/DMSans-VariableFont_opsz,wght.ttf" id="1_0wmel"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l7nqi"]
+bg_color = Color(0.3764706, 0.48235294, 0.56078434, 1)
+
+[resource]
+Button/fonts/font = ExtResource("1_0wmel")
+Button/styles/disabled = SubResource("StyleBoxFlat_l7nqi")
+Button/styles/focus = SubResource("StyleBoxFlat_l7nqi")
+Button/styles/hover = SubResource("StyleBoxFlat_l7nqi")
+Button/styles/normal = SubResource("StyleBoxFlat_l7nqi")
+Button/styles/pressed = SubResource("StyleBoxFlat_l7nqi")

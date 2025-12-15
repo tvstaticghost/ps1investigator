@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ckl32rbeebfsd"
-path="res://.godot/imported/CactusPlot1DUG.glb-f74cda076e671b8112ba18b46375e867.scn"
+uid="uid://d1amtrqe1ohm7"
+path="res://.godot/imported/ceilingfan.glb-ce95689ae39cbffa602c201249e3f8ac.scn"
 
 [deps]
 
-source_file="res://Meshes/CactusPlot1DUG.glb"
-dest_files=["res://.godot/imported/CactusPlot1DUG.glb-f74cda076e671b8112ba18b46375e867.scn"]
+source_file="res://Meshes/ceilingfan.glb"
+dest_files=["res://.godot/imported/ceilingfan.glb-ce95689ae39cbffa602c201249e3f8ac.scn"]
 
 [params]
 

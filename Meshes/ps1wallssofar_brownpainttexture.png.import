@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cslodynw3qkqt"
-path.s3tc="res://.godot/imported/CactusPlot1DUG_sandy_gravel_02_diff_1k.jpg-a89f044830a6ce2e299e415051115f39.s3tc.ctex"
+uid="uid://cui5jqm02xfyy"
+path.s3tc="res://.godot/imported/ps1wallssofar_brownpainttexture.png-cde75c1033beb3ad8ff8865c1b440314.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "3f0b8b43688fec410878390ac6acb601"
+"md5": "f6b20212ac54e7cf852c8ae7a7865165"
 }
 
 [deps]
 
-source_file="res://Meshes/CactusPlot1DUG_sandy_gravel_02_diff_1k.jpg"
-dest_files=["res://.godot/imported/CactusPlot1DUG_sandy_gravel_02_diff_1k.jpg-a89f044830a6ce2e299e415051115f39.s3tc.ctex"]
+source_file="res://Meshes/ps1wallssofar_brownpainttexture.png"
+dest_files=["res://.godot/imported/ps1wallssofar_brownpainttexture.png-cde75c1033beb3ad8ff8865c1b440314.s3tc.ctex"]
 
 [params]
 

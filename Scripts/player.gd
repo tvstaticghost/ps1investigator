@@ -36,6 +36,10 @@ func _process(_delta: float) -> void:
 		if hit.is_in_group("Lamp"):
 			if Input.is_action_just_pressed("Interact"):
 				hit.get_parent().toggle_lamp()
+		elif hit.is_in_group("Door"):
+			print("door")
+			if Input.is_action_just_pressed("Interact"):
+				hit.get_parent().get_parent().get_parent().toggle_door()
 	else:
 		interact_overlay.visible = false
 		
