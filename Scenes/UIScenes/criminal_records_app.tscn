@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://4yhleww3p64q"]
 
 [ext_resource type="Theme" uid="uid://bseq8ct27g434" path="res://Themes/panel_background.tres" id="1_jw05a"]
-[ext_resource type="Script" uid="uid://chexiumk6sk5v" path="res://Scripts/criminal_records_app.gd" id="2_lsltf"]
+[ext_resource type="Script" uid="uid://chexiumk6sk5v" path="res://Scripts/UIScripts/criminal_records_app.gd" id="2_lsltf"]
 [ext_resource type="Theme" uid="uid://hy6j8q5qcw0v" path="res://Themes/top_bar.tres" id="2_sqg14"]
 [ext_resource type="Texture2D" uid="uid://cwdhu5ktimnnt" path="res://Icons/icons8-close-24.png" id="3_jw05a"]
 [ext_resource type="Theme" uid="uid://d4de1kekhdg4m" path="res://Themes/criminal_records_app.tres" id="4_sqg14"]

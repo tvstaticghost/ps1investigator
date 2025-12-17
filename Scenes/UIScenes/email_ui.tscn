@@ -1,6 +1,6 @@
 [gd_scene load_steps=28 format=3 uid="uid://dsy814gjau47n"]
 
-[ext_resource type="Script" uid="uid://emb6jjpgr2lj" path="res://Scripts/email_ui.gd" id="1_iuc5o"]
+[ext_resource type="Script" uid="uid://emb6jjpgr2lj" path="res://Scripts/UIScripts/email_ui.gd" id="1_iuc5o"]
 [ext_resource type="Theme" uid="uid://hy6j8q5qcw0v" path="res://Themes/top_bar.tres" id="2_gdxu7"]
 [ext_resource type="Texture2D" uid="uid://cwdhu5ktimnnt" path="res://Icons/icons8-close-24.png" id="3_f0msf"]
 [ext_resource type="Theme" uid="uid://cjdgl7gqgqsxc" path="res://Themes/email_ui.tres" id="4_gdxu7"]
@@ -106,7 +106,6 @@ script = ExtResource("1_iuc5o")
 
 [node name="PanelBackground" type="Panel" parent="."]
 z_index = -1
-z_as_relative = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -185,8 +184,6 @@ autowrap_trim_flags = 192
 expand_icon = true
 
 [node name="FolderPanel" type="Panel" parent="PanelBackground"]
-z_index = 1
-z_as_relative = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.014
@@ -252,6 +249,7 @@ offset_right = -0.67474365
 theme = SubResource("Theme_y8d5j")
 
 [node name="Panel" type="Panel" parent="PanelBackground/FolderPanel"]
+z_index = 1
 layout_mode = 0
 offset_left = 0.33999634
 offset_top = 28.485657
@@ -441,6 +439,9 @@ theme = ExtResource("4_gdxu7")
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="Label" type="Label" parent="PanelBackground/EmailListPanel/ScrollContainer/EmailInfoContainer"]
+layout_mode = 2
+
 [node name="TextEdit" type="TextEdit" parent="PanelBackground"]
 z_index = 1
 layout_mode = 1
@@ -569,7 +570,21 @@ offset_bottom = 185.0
 mouse_filter = 2
 theme = SubResource("Theme_jhr0p")
 
+[connection signal="mouse_entered" from="PanelBackground/TopBar" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="PanelBackground/TopBar" to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="PanelBackground/TopBar/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="PanelBackground/TopBar/MinimizeButton" to="." method="_on_minimize_button_pressed"]
+[connection signal="mouse_entered" from="PanelBackground/FolderPanel/FolderDescPanel" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="PanelBackground/FolderPanel/FolderDescPanel" to="." method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="PanelBackground/FolderPanel/Panel" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="PanelBackground/FolderPanel/Panel" to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="PanelBackground/FolderPanel/Panel/InboxFolder" to="." method="_on_inbox_label_pressed"]
 [connection signal="pressed" from="PanelBackground/FolderPanel/Panel/DeletedFolder" to="." method="_on_deleted_folder_pressed"]
+[connection signal="mouse_entered" from="PanelBackground/EmailListPanel/SenderPanel" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="PanelBackground/EmailListPanel/SenderPanel" to="." method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="PanelBackground/EmailListPanel/SubjectPanel" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="PanelBackground/EmailListPanel/SubjectPanel" to="." method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="PanelBackground/EmailListPanel/ScrollContainer" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="PanelBackground/EmailListPanel/ScrollContainer" to="." method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="PanelBackground/TextEdit/WhiteBackground/ScrollContainer" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="PanelBackground/TextEdit/WhiteBackground/ScrollContainer" to="." method="_on_mouse_exited"]

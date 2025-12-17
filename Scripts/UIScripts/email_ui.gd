@@ -21,12 +21,21 @@ var inbox_email_list = []
 var current_folder: FOLDERS
 var selected_email_button: Button = null
 
+var hovering: bool = false
+
 func _ready() -> void:
 	current_folder = FOLDERS.INBOX
 	
 	inbox_folder.theme = EMAIL_ITEM_SELECTED
 	
+	#Example of receiving a new email
+	GameManager.receive_email("zuko dipaolo", "ball", "12-15-2025", "zuko diapolo <zuko@gmail.com>", "player@gmail.com", "Let's go play ball right now!")
+	
 	generate_emails()
+	
+func _process(_delta: float) -> void:
+	if hovering and Input.is_action_just_pressed("Select"):
+		SignalManager.select_application.emit(self)
 		
 func clear_email_list():
 	selected_email_button = null
@@ -89,9 +98,9 @@ func _on_email_item_pressed(button: Button, email_data: Dictionary) -> void:
 
 	# Optional: do something with the email
 	print("Opened email from:", email_data["sender"])
-	subject_value.text = email_data["subject"]
+	subject_value.text = email_data["subject"].capitalize()
 	date_value.text = email_data["date"]
-	from_value.text = email_data["from"]
+	from_value.text = email_data["from"].capitalize()
 	to_value.text = email_data["to"]
 	message_value.text = email_data["message"]
 
@@ -118,3 +127,10 @@ func _on_deleted_folder_pressed() -> void:
 	current_folder = FOLDERS.DELETED
 	
 	generate_emails()
+
+
+func _on_mouse_entered() -> void:
+	hovering = true
+
+func _on_mouse_exited() -> void:
+	hovering = false

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dqrpakwpbjrxp"]
 
-[ext_resource type="Script" uid="uid://dwktkrgo2cu64" path="res://Scripts/notepad_ui.gd" id="1_at8eu"]
+[ext_resource type="Script" uid="uid://dwktkrgo2cu64" path="res://Scripts/UIScripts/notepad_ui.gd" id="1_at8eu"]
 [ext_resource type="Theme" uid="uid://bseq8ct27g434" path="res://Themes/panel_background.tres" id="2_rhsmg"]
 [ext_resource type="Theme" uid="uid://hy6j8q5qcw0v" path="res://Themes/top_bar.tres" id="3_sdjma"]
 [ext_resource type="Texture2D" uid="uid://cwdhu5ktimnnt" path="res://Icons/icons8-close-24.png" id="4_3yf5c"]
@@ -36,7 +36,7 @@ offset_right = -2.0
 offset_bottom = 0.099975586
 theme = SubResource("Theme_rhsmg")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="TitleBar" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.003
@@ -47,7 +47,7 @@ offset_right = -0.29501343
 offset_bottom = -3.1000023
 theme = ExtResource("3_sdjma")
 
-[node name="CloseButton" type="Button" parent="Panel"]
+[node name="CloseButton" type="Button" parent="TitleBar"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -65,7 +65,7 @@ icon = ExtResource("4_3yf5c")
 autowrap_trim_flags = 192
 expand_icon = true
 
-[node name="MinimizeButton" type="Button" parent="Panel"]
+[node name="MinimizeButton" type="Button" parent="TitleBar"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -84,7 +84,7 @@ text = "_"
 autowrap_trim_flags = 192
 expand_icon = true
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Label" type="Label" parent="TitleBar"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.21900001
@@ -114,5 +114,10 @@ grow_vertical = 2
 theme = ExtResource("2_rhsmg")
 text = "Type here..."
 
-[connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
-[connection signal="pressed" from="Panel/MinimizeButton" to="." method="_on_minimize_button_pressed"]
+[connection signal="mouse_entered" from="TitleBar" to="." method="_on_title_bar_mouse_entered"]
+[connection signal="mouse_exited" from="TitleBar" to="." method="_on_title_bar_mouse_exited"]
+[connection signal="pressed" from="TitleBar/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="TitleBar/MinimizeButton" to="." method="_on_minimize_button_pressed"]
+[connection signal="caret_changed" from="TextEdit" to="." method="_on_title_bar_mouse_entered"]
+[connection signal="mouse_entered" from="TextEdit" to="." method="_on_panel_mouse_entered"]
+[connection signal="mouse_exited" from="TextEdit" to="." method="_on_title_bar_mouse_exited"]

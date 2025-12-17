@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ds7id54i7tm41" path="res://Icons/icons8-note-40.png" id="1_mgera"]
 [ext_resource type="Theme" uid="uid://bimac2eua8r3x" path="res://Themes/icons.tres" id="2_3ikla"]
-[ext_resource type="Script" uid="uid://c26vpnqah06ej" path="res://Scripts/notesicon.gd" id="2_aol7r"]
+[ext_resource type="Script" uid="uid://c26vpnqah06ej" path="res://Scripts/UIScripts/notesicon.gd" id="2_aol7r"]
 
 [node name="NotesIcon" type="Button"]
 offset_left = 15.0

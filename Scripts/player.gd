@@ -4,13 +4,15 @@ extends CharacterBody3D
 @onready var ray_cast_3d: RayCast3D = $Head/Camera3D/RayCast3D
 @onready var interact_overlay: Control = $"../CanvasLayer/InteractOverlay"
 
+@export var position_curve: Curve
+
 const SPEED = 1.6
 const JUMP_VELOCITY = 4.5
 const MOUSE_SENS = 0.05
 const GRAVITY = 5.0
 
 var can_move := true
-
+var move_progress := 0.0
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -54,11 +56,20 @@ func _physics_process(delta: float) -> void:
 	var input_dir = Input.get_vector("pan_left", "pan_right", "pan_up", "pan_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
+	#if direction != Vector3.ZERO:
+		#velocity.x = direction.x * SPEED * position_curve.sample(delta)
+		#velocity.z = direction.z * SPEED
+	#else:
+		#velocity.x = move_toward(velocity.x, 0, SPEED)
+		#velocity.z = move_toward(velocity.z, 0, SPEED)
 	if direction != Vector3.ZERO:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		move_progress = min(move_progress + delta * 2.5, 1.0)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		move_progress = max(move_progress - delta * 3.5, 0.0)
+		
+	var speed_mult := position_curve.sample(move_progress)
+
+	velocity.x = direction.x * SPEED * speed_mult
+	velocity.z = direction.z * SPEED * speed_mult
 
 	move_and_slide()
