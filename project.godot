@@ -11,15 +11,18 @@ config_version=5
 [application]
 
 config/name="PS1Computer"
-run/main_scene="uid://bqnewhva6687w"
+run/main_scene="uid://cj3a4qpq4dkaa"
 config/features=PackedStringArray("4.5", "Mobile")
-config/icon="res://Meshes/icon.svg"
 
 [autoload]
 
 GameManager="*res://Scripts/Globals/GameManager.gd"
 SignalManager="*res://Scripts/Globals/SignalManager.gd"
 Databases="*res://Scripts/Globals/Databases.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [global_group]
 

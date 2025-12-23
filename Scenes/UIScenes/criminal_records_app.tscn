@@ -26,15 +26,15 @@ border_color = Color(0.7058824, 0.62352943, 0.7176471, 1)
 Panel/styles/panel = SubResource("StyleBoxFlat_jw05a")
 
 [node name="CriminalRecordsApp" type="Panel" groups=["CriminalRecordsApp"]]
-anchors_preset = -1
-anchor_left = 0.731
-anchor_top = 0.083000004
-anchor_right = 0.97700006
-anchor_bottom = 0.66800004
-offset_left = -0.11199951
-offset_top = 0.21599579
-offset_right = -0.5040283
-offset_bottom = 0.13598633
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -310.0
+offset_top = -270.0
+offset_right = -27.0
+offset_bottom = 109.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_jw05a")
@@ -195,6 +195,11 @@ grow_vertical = 2
 theme = ExtResource("6_40b82")
 text = "Back to search"
 icon = ExtResource("6_en5tu")
+
+[node name="Control" type="Control" parent="AppBody/ScrollContainer/ResultsContainer/BackContainer/Button"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="pressed" from="Panel/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="Panel/MinimizeButton" to="." method="_on_minimize_button_pressed"]

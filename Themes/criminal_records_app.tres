@@ -3,7 +3,16 @@
 [ext_resource type="FontFile" uid="uid://qbqiwhmhnfm2" path="res://Fonts/DMSans-VariableFont_opsz,wght.ttf" id="1_v28yv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pq13w"]
-bg_color = Color(0, 0, 0, 1)
+content_margin_left = 10.0
+content_margin_top = 2.0
+content_margin_right = 10.0
+content_margin_bottom = 2.0
+bg_color = Color(0.6872149, 0.68721503, 0.6872149, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v28yv"]
 content_margin_left = 5.0
@@ -15,7 +24,22 @@ border_width_bottom = 2
 border_color = Color(0, 0, 0, 1)
 
 [resource]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 0.5019608)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_disabled_color = Color(0, 0, 0, 0.4)
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("1_v28yv")
+Button/styles/disabled = SubResource("StyleBoxFlat_pq13w")
+Button/styles/focus = SubResource("StyleBoxFlat_pq13w")
+Button/styles/hover = SubResource("StyleBoxFlat_pq13w")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_pq13w")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_pq13w")
 Button/styles/normal = SubResource("StyleBoxFlat_pq13w")
+Button/styles/pressed = SubResource("StyleBoxFlat_pq13w")
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/font_sizes/font_size = 16

@@ -5,9 +5,13 @@ extends Panel
 @onready var last_name_field: LineEdit = $AppBody/SearchContainer/LastNameField
 @onready var results_container: VBoxContainer = $AppBody/ScrollContainer/ResultsContainer
 @onready var search_container: VBoxContainer = $AppBody/SearchContainer
+const PLAIN_PANEL = preload("uid://deffa1arcr72g")
+const GRAY_PANEL = preload("uid://bdliv6sd1rqmn")
 
 const CRIMINAL_RECORDS_APP = preload("uid://d4de1kekhdg4m")
 const BACKOPTIONS = preload("uid://c8eulcvg7i8il")
+
+var gray: bool = true
 
 func _ready() -> void:
 	search_container.visible = true
@@ -35,8 +39,14 @@ func _on_submit_button_pressed() -> void:
 		var box = HBoxContainer.new()
 		var pan = Panel.new()
 		pan.custom_minimum_size.y = 60.0
-		results_container.add_child(box)
-		box.add_child(pan)
+		results_container.add_child(pan)
+		pan.add_child(box)
+		pan.theme = PLAIN_PANEL
+		if gray:
+			pan.theme = GRAY_PANEL
+		else:
+			pan.theme = PLAIN_PANEL
+		gray = !gray
 		
 		var first_label = Label.new()
 		first_label.size = pan.size
@@ -48,15 +58,19 @@ func _on_submit_button_pressed() -> void:
 		var mugshot_btn = Button.new()
 		mugshot_btn.theme = BACKOPTIONS
 		mugshot_btn.text = "Record"
+		mugshot_btn.size_flags_horizontal = Control.SIZE_EXPAND
 		
-		pan.add_child(first_label)
-		pan.add_child(mugshot_btn)
+		#pan.add_child(first_label)
+		#pan.add_child(mugshot_btn)
+		box.add_child(first_label)
+		box.add_child(mugshot_btn)
 		
 
 func _on_close_button_pressed() -> void:
 	print("Closing application")
 	if visible:
 		visible = false
+		gray = true
 
 func _on_minimize_button_pressed() -> void:
 	print("Minimize application")

@@ -1,9 +1,9 @@
 extends Node
 
 var people = [
-	{"first": "bob", "last": "livingston", "crime": "shoplifting"},
-	{"first": "karen", "last": "lawrence", "crime": "shoplifting"},
-	{"first": "bob", "last": "saffron", "crime": "arsen"},
+	{"first": "bob", "last": "livingston", "crime": "shoplifting", "id": 1},
+	{"first": "karen", "last": "lawrence", "crime": "shoplifting", "id": 2},
+	{"first": "bob", "last": "saffron", "crime": "arsen", "id": 3},
 ]
 
 var emails = {
@@ -14,6 +14,11 @@ var emails = {
 	"deleted": [
 		{"sender": "the killer", "subject": "so...", "date": "12-13-2025","from": "the killer <thekiller@gmail.com>", "to": "player@gmail.com", "message": "Dear Player,\n I'm gonna have to kill you dude. Nothing personal..."}
 	]
+}
+
+var mugshots = {
+	1: {"name": "bob livingston", "dob": "10-18-1954", "crime": "shoplifting"},
+	2: {}
 }
 
 func find_person(first_name: String, last_name: String):
