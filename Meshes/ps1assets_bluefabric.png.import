@@ -2,14 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dusybt2md2ig5"
+uid="uid://biwd20aoe7pip"
 path.s3tc="res://.godot/imported/ps1assets_bluefabric.png-828e230313c6abdca26ab2caf52c1f86.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "d223560751b1d7711e724d99eeae2c68"
+"md5": "63dd38aa8ec58656a10ffd9956f2ca9a"
 }
 
 [deps]

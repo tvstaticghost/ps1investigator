@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b02idr083xwcl"]
+[gd_scene load_steps=5 format=3 uid="uid://b02idr083xwcl"]
 
 [ext_resource type="Script" uid="uid://b0fy75ojeka5e" path="res://Scripts/player.gd" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://c57t5bnabwfkn" path="res://Icons/reticle.png" id="2_cvnsp"]
 
 [sub_resource type="Curve" id="Curve_v0iea"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.75, 1), 0.0, 0.0, 0, 0]
@@ -23,5 +24,31 @@ doppler_tracking = 2
 
 [node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-target_position = Vector3(0, -1.465, 0)
+target_position = Vector3(0, -1.755, 0)
 collide_with_areas = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+self_modulate = Color(1, 1, 1, 0.21568628)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_cvnsp")

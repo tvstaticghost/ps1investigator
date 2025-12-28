@@ -3,6 +3,7 @@ extends CharacterBody3D
 @onready var head: Node3D = $Head
 @onready var ray_cast_3d: RayCast3D = $Head/Camera3D/RayCast3D
 @onready var interact_overlay: Control = $"../CanvasLayer/InteractOverlay"
+@onready var texture_rect: TextureRect = $CanvasLayer/Control/TextureRect
 
 @export var position_curve: Curve
 
@@ -14,9 +15,16 @@ const GRAVITY = 5.0
 var can_move := true
 var move_progress := 0.0
 
+var reticle_dim: bool = true
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+	
+func toggle_reticle_alpha():
+	if reticle_dim:
+		texture_rect.self_modulate.a = 0.21
+	else:
+		texture_rect.self_modulate.a = 0.7
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and can_move:
@@ -32,19 +40,39 @@ func _input(event: InputEvent) -> void:
 		
 func _process(_delta: float) -> void:
 	if ray_cast_3d.is_colliding():
+		reticle_dim = false
+		toggle_reticle_alpha()
 		interact_overlay.visible = true
 		
 		var hit := ray_cast_3d.get_collider()
 		if hit.is_in_group("Lamp"):
 			if Input.is_action_just_pressed("Interact"):
-				hit.get_parent().toggle_lamp()
+				print("LAMP")
+				#hit.get_parent().toggle_lamp()
 		elif hit.is_in_group("Door"):
 			print("door")
 			if Input.is_action_just_pressed("Interact"):
-				hit.get_parent().get_parent().get_parent().toggle_door()
+				hit.get_parent().toggle_door()
+		elif hit.is_in_group("LightSwitch"):
+			if Input.is_action_just_pressed("Interact"):
+				print(hit.get_parent())
+				SignalManager.toggle_lights.emit(hit.get_parent())
+		elif hit.is_in_group("Drawer"):
+			if Input.is_action_just_pressed("Interact"):
+				hit.get_parent().get_parent().toggle_drawer()
+		elif hit.is_in_group("Cabinet"):
+			if Input.is_action_just_pressed("Interact"):
+				hit.get_parent().get_parent().toggle_cabinet()
+		elif hit.is_in_group("Stove"):
+			if Input.is_action_just_pressed("Interact"):
+				hit.get_parent().get_parent().toggle_door()
+		elif hit.is_in_group("Fridge"):
+			if Input.is_action_just_pressed("Interact"):
+				hit.get_parent().toggle_door()
 	else:
+		reticle_dim = true
 		interact_overlay.visible = false
-		
+		toggle_reticle_alpha()
 
 
 func _physics_process(delta: float) -> void:

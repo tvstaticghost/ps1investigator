@@ -1,16 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj3a4qpq4dkaa"]
+[gd_scene load_steps=7 format=3 uid="uid://cj3a4qpq4dkaa"]
 
 [ext_resource type="PackedScene" uid="uid://y6djbq84ff7k" path="res://Scenes/house_scene.tscn" id="1_ebmjs"]
 [ext_resource type="PackedScene" uid="uid://b02idr083xwcl" path="res://Scenes/player.tscn" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://36blbxnid7g2" path="res://Scenes/UIScenes/interact_overlay.tscn" id="3_wrm1d"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wrm1d"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0.0037824875, 0.14535964, 0.20144439, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_i6g32"]
+sky_material = SubResource("ProceduralSkyMaterial_wrm1d")
+
+[sub_resource type="Environment" id="Environment_1l0tm"]
+background_mode = 2
+sky = SubResource("Sky_i6g32")
+tonemap_mode = 3
+glow_enabled = true
+
 [node name="Game" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1l0tm")
 
 [node name="HouseScene" parent="." instance=ExtResource("1_ebmjs")]
 
 [node name="Player" parent="." instance=ExtResource("2_qxrlw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.072622, 1.2475147, 2.6805382)
+transform = Transform3D(0.7027742, 0, 0.71141297, 0, 1, 0, -0.71141297, 0, 0.7027742, 4.7671986, 1.2475147, -3.5648346)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="InteractOverlay" parent="CanvasLayer" instance=ExtResource("3_wrm1d")]
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.99673396, 0.06783689, -0.04381346, 0, 0.5425441, 0.84002733, 0.08075557, 0.8372838, -0.54077214, 0, 25.301006, -23.649326)
+light_energy = 0.1
+shadow_enabled = true

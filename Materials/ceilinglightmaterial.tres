@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://k3msebk4ccit"]
+
+[resource]
+cull_mode = 2
+metallic = 0.53
+roughness = 0.16
+emission_enabled = true
+emission = Color(0.91764706, 0.8352941, 0.65882355, 1)
+emission_energy_multiplier = 1.1
