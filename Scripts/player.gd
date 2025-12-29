@@ -4,13 +4,14 @@ extends CharacterBody3D
 @onready var ray_cast_3d: RayCast3D = $Head/Camera3D/RayCast3D
 @onready var interact_overlay: Control = $"../CanvasLayer/InteractOverlay"
 @onready var texture_rect: TextureRect = $CanvasLayer/Control/TextureRect
+@onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 
 @export var position_curve: Curve
 
 const SPEED = 1.6
 const JUMP_VELOCITY = 4.5
 const MOUSE_SENS = 0.05
-const GRAVITY = 5.0
+var GRAVITY = 5.0
 
 var can_move := true
 var move_progress := 0.0
@@ -19,6 +20,7 @@ var reticle_dim: bool = true
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	SignalManager.sit_at_computer.connect(use_computer)
 	
 func toggle_reticle_alpha():
 	if reticle_dim:
@@ -37,6 +39,13 @@ func _input(event: InputEvent) -> void:
 	# Let player free the mouse with ESC
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		
+func use_computer(desk_chair_pos: Vector3):
+	GRAVITY = 0.0
+	collision_shape_3d.disabled = true
+	var tween = create_tween()
+	tween.tween_property(self, "global_position", desk_chair_pos, 0.4)
+	#global_position = desk_chair_pos
 		
 func _process(_delta: float) -> void:
 	if ray_cast_3d.is_colliding():
@@ -69,6 +78,9 @@ func _process(_delta: float) -> void:
 		elif hit.is_in_group("Fridge"):
 			if Input.is_action_just_pressed("Interact"):
 				hit.get_parent().toggle_door()
+		elif hit.is_in_group("Computer"):
+			if Input.is_action_just_pressed("Interact"):
+				hit.get_parent().use_computer(global_position)
 	else:
 		reticle_dim = true
 		interact_overlay.visible = false
