@@ -11,6 +11,9 @@ var emails = {
 		{"sender": "Person 1", "subject": "test subject", "date": "12-12-2025", "from": "Person One <person1@gmail.com>",  "to": "player@gmail.com", "message": "This is a test email to see if my container is actually scrollable. If it is not scrollable I will be very sad. It takes so long to create UI that doesn't look like utter dog shit in Godot that I am getting a little frustrated. Maybe I should start working on the assets and logic instead to take a break."},
 		{"sender": "Person 2", "subject": "sup bitch", "date": "12-13-2025","from": "Person Two <person2@gmail.com>", "to": "player@gmail.com", "message": "Whats up little bitch! Need you to find some info about this person for me... 500 $$$"}
 	],
+	"sent": [
+		{"sender": "Player", "subject": "info", "date": "12-13-2025","from": "Player <player@gmail.com>", "to": "person2@gmail.com", "message": "Heres the info you wanted..."}
+	],
 	"deleted": [
 		{"sender": "the killer", "subject": "so...", "date": "12-13-2025","from": "the killer <thekiller@gmail.com>", "to": "player@gmail.com", "message": "Dear Player,\n I'm gonna have to kill you dude. Nothing personal..."}
 	]
@@ -39,3 +42,8 @@ func get_inbox_emails():
 func get_deleted_emails():
 	print(emails["deleted"])
 	return emails["deleted"]
+
+func get_sent_emails():
+	print("Sending sent emails")
+	print(emails["sent"])
+	return emails["sent"]

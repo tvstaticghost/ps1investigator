@@ -309,6 +309,34 @@ offset_bottom = -0.005004883
 theme = ExtResource("4_gdxu7")
 text = "Deleted"
 
+[node name="TextureRect3" type="TextureRect" parent="PanelBackground/FolderPanel/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.016
+anchor_top = 0.5
+anchor_right = 0.13700001
+anchor_bottom = 0.64500004
+offset_left = 0.0094435215
+offset_top = -8.5
+offset_right = -0.035417557
+offset_bottom = -6.045006
+texture = ExtResource("5_f0msf")
+
+[node name="SentFolder" type="Button" parent="PanelBackground/FolderPanel/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.17300001
+anchor_top = 0.43
+anchor_right = 0.39000002
+anchor_bottom = 0.61200005
+offset_left = 0.00082206726
+offset_top = -1.0300026
+offset_right = 0.052597046
+offset_bottom = -0.052009583
+theme = ExtResource("4_gdxu7")
+text = "Sent"
+alignment = 0
+
 [node name="EmailListPanel" type="Panel" parent="PanelBackground"]
 z_index = 1
 layout_mode = 1
@@ -580,6 +608,7 @@ theme = SubResource("Theme_jhr0p")
 [connection signal="mouse_exited" from="PanelBackground/FolderPanel/Panel" to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="PanelBackground/FolderPanel/Panel/InboxFolder" to="." method="_on_inbox_label_pressed"]
 [connection signal="pressed" from="PanelBackground/FolderPanel/Panel/DeletedFolder" to="." method="_on_deleted_folder_pressed"]
+[connection signal="pressed" from="PanelBackground/FolderPanel/Panel/SentFolder" to="." method="_on_sent_folder_pressed"]
 [connection signal="mouse_entered" from="PanelBackground/EmailListPanel/SenderPanel" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="PanelBackground/EmailListPanel/SenderPanel" to="." method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="PanelBackground/EmailListPanel/SubjectPanel" to="." method="_on_mouse_entered"]

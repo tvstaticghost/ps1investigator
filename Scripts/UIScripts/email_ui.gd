@@ -1,10 +1,11 @@
 extends Panel
 
-enum FOLDERS {INBOX, DELETED}
+enum FOLDERS {INBOX, DELETED, SENT}
 
 @onready var inbox_folder: Button = $PanelBackground/FolderPanel/Panel/InboxFolder
 @onready var deleted_folder: Button = $PanelBackground/FolderPanel/Panel/DeletedFolder
 @onready var email_info_container: VBoxContainer = $PanelBackground/EmailListPanel/ScrollContainer/EmailInfoContainer
+@onready var sent_folder: Button = $PanelBackground/FolderPanel/Panel/SentFolder
 
 @onready var subject_value: Label = $PanelBackground/TextEdit/WhiteBackground/VBoxContainer2/SubjectValue
 @onready var date_value: Label = $PanelBackground/TextEdit/WhiteBackground/VBoxContainer2/DateValue
@@ -54,6 +55,8 @@ func generate_emails():
 	var inbox_emails
 	if current_folder == FOLDERS.INBOX:
 		inbox_emails = Databases.get_inbox_emails()
+	elif current_folder == FOLDERS.SENT:
+		inbox_emails = Databases.get_sent_emails()
 	else:
 		inbox_emails = Databases.get_deleted_emails()
 		
@@ -115,6 +118,7 @@ func _on_minimize_button_pressed() -> void:
 
 func _on_inbox_label_pressed() -> void:
 	deleted_folder.theme = EMAIL_UI
+	sent_folder.theme = EMAIL_UI
 	inbox_folder.theme = EMAIL_ITEM_SELECTED
 	current_folder = FOLDERS.INBOX
 	
@@ -124,8 +128,17 @@ func _on_inbox_label_pressed() -> void:
 func _on_deleted_folder_pressed() -> void:
 	deleted_folder.theme = EMAIL_ITEM_SELECTED
 	inbox_folder.theme = EMAIL_UI
+	sent_folder.theme = EMAIL_UI
 	current_folder = FOLDERS.DELETED
 	
+	generate_emails()
+	
+	
+func _on_sent_folder_pressed() -> void:
+	deleted_folder.theme = EMAIL_UI
+	inbox_folder.theme = EMAIL_UI
+	sent_folder.theme = EMAIL_ITEM_SELECTED
+	current_folder = FOLDERS.SENT
 	generate_emails()
 
 
