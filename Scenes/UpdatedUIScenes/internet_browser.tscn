@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccl8ufph5i75f"]
+
+[ext_resource type="Texture2D" uid="uid://bocqu0538xgeh" path="res://UIImages/store.png" id="1_7gwj1"]
+[ext_resource type="Script" uid="uid://budd5h088rq38" path="res://Scripts/UIScripts/internet_browser.gd" id="2_fht5r"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b2d1m"]
+texture = ExtResource("1_7gwj1")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fht5r"]
+bg_color = Color(0.8, 0.8, 0.8, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fht5r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7gg1"]
+bg_color = Color(0.3372549, 0.4509804, 0.7058824, 0.5568628)
+
+[node name="InternetBrowser" type="Panel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -250.0
+offset_right = 400.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_b2d1m")
+script = ExtResource("2_fht5r")
+
+[node name="LoadingPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 93.0
+offset_right = 741.0
+offset_bottom = 543.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fht5r")
+
+[node name="LoadingTimer" type="Timer" parent="."]
+wait_time = 0.4
+autostart = true
+
+[node name="LoadingBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 107.0
+offset_top = 33.0
+offset_right = 450.0
+offset_bottom = 60.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_fht5r")
+theme_override_styles/fill = SubResource("StyleBoxFlat_i7gg1")
+show_percentage = false
+
+[connection signal="timeout" from="LoadingTimer" to="." method="_on_loading_timer_timeout"]

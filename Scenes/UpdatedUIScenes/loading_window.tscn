@@ -1,0 +1,115 @@
+[gd_scene load_steps=9 format=3 uid="uid://bi4kyeix836pr"]
+
+[ext_resource type="Texture2D" uid="uid://ctmfsx0kskesq" path="res://UIImages/loading_bar.png" id="1_byhc5"]
+[ext_resource type="Script" uid="uid://bcsakjyqqli0f" path="res://Scripts/UIScripts/loading_window.gd" id="2_hsoql"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hsoql"]
+texture = ExtResource("1_byhc5")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_byhc5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hsoql"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xkxdp"]
+bg_color = Color(0.6627451, 0.6627451, 0.6627451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hsoql"]
+bg_color = Color(0.6627451, 0.6627451, 0.6627451, 0.827451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6cjt"]
+bg_color = Color(0.6627451, 0.6627451, 0.6627451, 0.827451)
+
+[node name="LoadingWindow" type="Panel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -86.125
+offset_right = 140.125
+offset_bottom = 86.125
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_hsoql")
+script = ExtResource("2_hsoql")
+
+[node name="CancelButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.54
+anchor_top = 0.647
+anchor_right = 0.80700004
+anchor_bottom = 0.74700004
+offset_left = 0.11999512
+offset_top = -0.07299805
+offset_right = 0.12097168
+offset_bottom = 0.026992798
+theme_override_styles/normal = SubResource("StyleBoxEmpty_byhc5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_byhc5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_byhc5")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_byhc5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_byhc5")
+
+[node name="DoneButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.193
+anchor_top = 0.64500004
+anchor_right = 0.46100003
+anchor_bottom = 0.744
+offset_left = -0.06412506
+offset_top = 0.023742676
+offset_right = -0.13763428
+offset_bottom = -0.029006958
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hsoql")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hsoql")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hsoql")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hsoql")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hsoql")
+
+[node name="LoadingBarHidePanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.12200001
+anchor_top = 0.45900002
+anchor_right = 0.87100005
+anchor_bottom = 0.55200005
+offset_left = -0.050251007
+offset_top = 0.06224823
+offset_right = 0.1361084
+offset_bottom = 0.04299164
+theme_override_styles/panel = SubResource("StyleBoxFlat_xkxdp")
+
+[node name="FadeOutDonePanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.193
+anchor_top = 0.64500004
+anchor_right = 0.46500003
+anchor_bottom = 0.75000006
+offset_left = 0.06087494
+offset_top = 0.023742676
+offset_right = -0.13313293
+offset_bottom = -0.06251526
+theme_override_styles/panel = SubResource("StyleBoxFlat_hsoql")
+
+[node name="FadeOutCancelPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.535
+anchor_top = 0.64500004
+anchor_right = 0.80700004
+anchor_bottom = 0.75000006
+offset_left = 0.13311768
+offset_top = 0.023742676
+offset_right = -0.06088257
+offset_bottom = -0.06251526
+theme_override_styles/panel = SubResource("StyleBoxFlat_w6cjt")
+
+[node name="LoadingTimer" type="Timer" parent="."]
+
+[connection signal="pressed" from="CancelButton" to="." method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="DoneButton" to="." method="_on_done_button_pressed"]
+[connection signal="timeout" from="LoadingTimer" to="." method="_on_loading_timer_timeout"]

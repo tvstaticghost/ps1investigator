@@ -45,6 +45,9 @@ func use_computer(desk_chair_pos: Vector3, left_point_pos: Vector3, right_point_
 	collision_shape_3d.disabled = true
 	can_move = false
 	
+	rotation_degrees.y = 180.0
+	head.rotation_degrees.x = -5.0 # So the fov lines up with the computer monitor better
+	
 	var tween = create_tween()
 	#Get Beside Chair
 	if global_position.x > desk_chair_pos.x:
@@ -54,15 +57,13 @@ func use_computer(desk_chair_pos: Vector3, left_point_pos: Vector3, right_point_
 		computer_entry_point = Vector3(right_point_pos.x, global_position.y, right_point_pos.z)
 		tween.tween_property(self, "global_position", computer_entry_point, 0.7).set_trans(Tween.TRANS_CUBIC)
 	
-	tween.tween_interval(0.15)
+	tween.tween_interval(0.10)
 	
 	tween.tween_property(self, "global_position", Vector3(desk_chair_pos.x, desk_chair_pos.y + 0.3, desk_chair_pos.z + 0.2), 0.7).set_trans(Tween.TRANS_CUBIC)
-	rotation_degrees.y = 180.0
-	rotation_degrees.x = 17.5 # So the fov lines up with the computer monitor better
 	
-	tween.tween_interval(0.15)
+	tween.tween_interval(0.10)
 	
-	tween.tween_property(camera_3d, "fov", 37, 0.4).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	tween.tween_property(camera_3d, "fov", 37, 0.2).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 	await tween.finished
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -73,7 +74,7 @@ func stop_using_computer():
 	SignalManager.exit_desktop.emit()
 	var tween = create_tween()
 	tween.tween_property(camera_3d, "fov", 75, 0.4).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
-	tween.tween_interval(0.15)
+	tween.tween_interval(0.10)
 	tween.tween_property(self, "global_position", computer_entry_point, 0.7).set_trans(Tween.TRANS_CUBIC)
 	await tween.finished
 	

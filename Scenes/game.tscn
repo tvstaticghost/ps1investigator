@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://cj3a4qpq4dkaa"]
+[gd_scene load_steps=12 format=3 uid="uid://cj3a4qpq4dkaa"]
 
 [ext_resource type="Script" uid="uid://bc2pcq3s2i5no" path="res://Scripts/game.gd" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://y6djbq84ff7k" path="res://Scenes/house_scene.tscn" id="1_ebmjs"]
 [ext_resource type="PackedScene" uid="uid://b02idr083xwcl" path="res://Scenes/player.tscn" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://36blbxnid7g2" path="res://Scenes/UIScenes/interact_overlay.tscn" id="3_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://dgmeuayavfda6" path="res://Scenes/UIScenes/desktop.tscn" id="5_wowpa"]
+[ext_resource type="PackedScene" uid="uid://btvopmh3cdlyn" path="res://Scenes/awfulanimation.tscn" id="6_i6g32"]
+[ext_resource type="PackedScene" uid="uid://doqdp6ngr4q1j" path="res://Scenes/awfulrunning.tscn" id="7_1l0tm"]
+[ext_resource type="Script" uid="uid://demcq00hv8u2m" path="res://Scripts/awfulrunning.gd" id="8_v158k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wrm1d"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -43,3 +46,15 @@ visible = false
 transform = Transform3D(-0.99673396, 0.06783689, -0.04381346, 0, 0.5425441, 0.84002733, 0.08075557, 0.8372838, -0.54077214, 0, 25.301006, -23.649326)
 light_energy = 0.1
 shadow_enabled = true
+
+[node name="awfulanimation" parent="." instance=ExtResource("6_i6g32")]
+transform = Transform3D(-0.45488903, 0, 0.010052841, 0, 0.45499998, 0, -0.010052841, 0, -0.45488903, -7.7852583, 0, 6.0830474)
+visible = false
+
+[node name="awfulrunning" parent="." instance=ExtResource("7_1l0tm")]
+visible = false
+script = ExtResource("8_v158k")
+
+[node name="RunPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.167149, 0.8811426, 6.178175)
+visible = false
