@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccl8ufph5i75f"]
+[gd_scene load_steps=12 format=3 uid="uid://ccl8ufph5i75f"]
 
-[ext_resource type="Texture2D" uid="uid://bocqu0538xgeh" path="res://UIImages/store.png" id="1_7gwj1"]
 [ext_resource type="Script" uid="uid://budd5h088rq38" path="res://Scripts/UIScripts/internet_browser.gd" id="2_fht5r"]
+[ext_resource type="Texture2D" uid="uid://cfokiww72d0hd" path="res://UIImages/InternetBrowser.png" id="2_i7gg1"]
+[ext_resource type="FontFile" uid="uid://qbqiwhmhnfm2" path="res://Fonts/DMSans-VariableFont_opsz,wght.ttf" id="3_lc2fh"]
+[ext_resource type="PackedScene" uid="uid://okm8e227rtkc" path="res://Scenes/UpdatedUIScenes/store_page.tscn" id="4_lc2fh"]
+[ext_resource type="PackedScene" uid="uid://fvpe4vsnxk30" path="res://Scenes/UpdatedUIScenes/yourspace_page.tscn" id="5_r31hy"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b2d1m"]
-texture = ExtResource("1_7gwj1")
+texture = ExtResource("2_i7gg1")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fht5r"]
 bg_color = Color(0.8, 0.8, 0.8, 1)
@@ -14,7 +17,12 @@ bg_color = Color(0.8, 0.8, 0.8, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7gg1"]
 bg_color = Color(0.3372549, 0.4509804, 0.7058824, 0.5568628)
 
-[node name="InternetBrowser" type="Panel"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i7gg1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lc2fh"]
+
+[node name="InternetBrowser" type="Control"]
+layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -22,33 +30,123 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -350.0
 offset_top = -250.0
-offset_right = 400.0
-offset_bottom = 300.0
+offset_right = 350.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_fht5r")
+
+[node name="InternetBrowser" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -250.0
+offset_right = 350.0
+offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_b2d1m")
-script = ExtResource("2_fht5r")
 
-[node name="LoadingPanel" type="Panel" parent="."]
+[node name="Url" type="Label" parent="InternetBrowser"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.060000002
+anchor_right = 0.601
+anchor_bottom = 0.11000001
+offset_left = 0.099998474
+offset_right = 0.2999878
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_lc2fh")
+theme_override_font_sizes/font_size = 14
+text = "URL BAR BITCH"
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="InternetBrowser"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.57900006
+anchor_right = 0.5
+anchor_bottom = 0.57900006
+offset_left = -346.0
+offset_top = -206.50003
+offset_right = 346.0
+offset_bottom = 206.49997
+
+[node name="StorePage" parent="InternetBrowser/ScrollContainer" instance=ExtResource("4_lc2fh")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="YourspacePage" parent="InternetBrowser/ScrollContainer" instance=ExtResource("5_r31hy")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="LoadingPanel" type="Panel" parent="InternetBrowser"]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 93.0
-offset_right = 741.0
-offset_bottom = 543.0
+offset_left = 5.0
+offset_top = 84.0
+offset_right = 696.0
+offset_bottom = 495.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_fht5r")
 
-[node name="LoadingTimer" type="Timer" parent="."]
+[node name="LoadingTimer" type="Timer" parent="InternetBrowser"]
 wait_time = 0.4
 autostart = true
 
-[node name="LoadingBar" type="ProgressBar" parent="."]
-layout_mode = 0
-offset_left = 107.0
-offset_top = 33.0
-offset_right = 450.0
-offset_bottom = 60.0
+[node name="LoadingBar" type="ProgressBar" parent="InternetBrowser"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.141
+anchor_top = 0.060000002
+anchor_right = 0.601
+anchor_bottom = 0.11000001
+offset_left = 0.29999542
+offset_right = 0.2999878
 theme_override_styles/background = SubResource("StyleBoxEmpty_fht5r")
 theme_override_styles/fill = SubResource("StyleBoxFlat_i7gg1")
 show_percentage = false
 
-[connection signal="timeout" from="LoadingTimer" to="." method="_on_loading_timer_timeout"]
+[node name="SafeHouseShortcut" type="Button" parent="InternetBrowser"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.011000001
+anchor_top = 0.125
+anchor_right = 0.119
+anchor_bottom = 0.16000001
+offset_left = -0.25000095
+offset_top = 0.25
+offset_right = -0.25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_i7gg1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i7gg1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_i7gg1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_i7gg1")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i7gg1")
+
+[node name="YourSpaceShortcut" type="Button" parent="InternetBrowser"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.12900001
+anchor_top = 0.124000005
+anchor_right = 0.23900001
+anchor_bottom = 0.162
+offset_left = 0.24999237
+offset_top = -0.20000458
+offset_right = -0.25
+offset_bottom = -0.099998474
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lc2fh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lc2fh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_lc2fh")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_lc2fh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lc2fh")
+
+[connection signal="timeout" from="InternetBrowser/LoadingTimer" to="." method="_on_loading_timer_timeout"]
+[connection signal="pressed" from="InternetBrowser/SafeHouseShortcut" to="." method="_on_safe_house_shortcut_pressed"]
+[connection signal="pressed" from="InternetBrowser/YourSpaceShortcut" to="." method="_on_your_space_shortcut_pressed"]

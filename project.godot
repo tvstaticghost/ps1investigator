@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.5", "Mobile")
 GameManager="*res://Scripts/Globals/GameManager.gd"
 SignalManager="*res://Scripts/Globals/SignalManager.gd"
 Databases="*res://Scripts/Globals/Databases.gd"
+InternetDatabase="*res://Scripts/Globals/InternetDatabase.gd"
 
 [display]
 
