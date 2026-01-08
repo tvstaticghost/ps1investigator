@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://fvpe4vsnxk30"]
+[gd_scene load_steps=10 format=3 uid="uid://fvpe4vsnxk30"]
 
 [ext_resource type="Texture2D" uid="uid://dpvmwwyuwarn2" path="res://UIImages/YourSpace.png" id="1_hlvqh"]
 [ext_resource type="FontFile" uid="uid://qbqiwhmhnfm2" path="res://Fonts/DMSans-VariableFont_opsz,wght.ttf" id="2_0h8br"]
@@ -12,6 +12,10 @@ texture = ExtResource("1_hlvqh")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cg275"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hlvqh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6elb6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qjdld"]
 
 [node name="YourspacePage" type="Panel"]
 offset_right = 692.0
@@ -64,5 +68,29 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_hlvqh")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_hlvqh")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_hlvqh")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_hlvqh")
+
+[node name="CoolPerson1Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 120.0
+offset_right = 106.0
+offset_bottom = 189.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6elb6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_6elb6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6elb6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6elb6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6elb6")
+
+[node name="CoolPerson2Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 119.0
+offset_right = 200.0
+offset_bottom = 189.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qjdld")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qjdld")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qjdld")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qjdld")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qjdld")
 
 [connection signal="pressed" from="SearchButton" to="." method="_on_search_button_pressed"]

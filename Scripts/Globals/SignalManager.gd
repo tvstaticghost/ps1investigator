@@ -11,3 +11,6 @@ signal view_desktop
 signal exit_desktop
 signal power_out
 signal power_on
+
+#Store and Item signals
+signal start_delivery
