@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cj3a4qpq4dkaa"]
+[gd_scene load_steps=10 format=3 uid="uid://cj3a4qpq4dkaa"]
 
 [ext_resource type="Script" uid="uid://bc2pcq3s2i5no" path="res://Scripts/game.gd" id="1_3dryh"]
 [ext_resource type="PackedScene" uid="uid://y6djbq84ff7k" path="res://Scenes/house_scene.tscn" id="1_ebmjs"]
@@ -20,6 +20,13 @@ background_mode = 2
 sky = SubResource("Sky_i6g32")
 tonemap_mode = 3
 glow_enabled = true
+
+[sub_resource type="Curve3D" id="Curve3D_wowpa"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 22.902496, 0, 12.501494, 0, 0, 0, 0, 0, 0, 13.2895, 0, 12.490368, 0, 0, 0, 0, 0, 0, -13.7498865, 0, 12.424556, 3.871376, 0, 0.063812256, -3.871376, 0, -0.063812256, -20.80755, 3.8146973e-06, 12.384267, 0, 0, 0, 0, 0, 0, -24.139442, -9.536743e-05, 6.850256, 0.043418884, 0, 1.6706352, -0.043418884, 0, -1.6706352, -23.992752, 0.008658409, -15.2136965, -0.00784874, -5.5789948e-05, 2.9519272, 0.00784874, 5.5789948e-05, -2.9519272, -24.007454, 0.002008915, -17.76553, 0, 0, 0, 0, 0, 0, -19.584833, 0.0022004861, -20.3904, 0, 0, 0, 0, 0, 0, -12.951193, 0.0027451515, -20.397839),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 9
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_3dryh")
@@ -44,5 +51,26 @@ transform = Transform3D(-0.99673396, 0.06783689, -0.04381346, 0, 0.5425441, 0.84
 light_energy = 0.1
 shadow_enabled = true
 
-[node name="TruckSpawnPoint" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.280523, 0, 18.318)
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_wowpa")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(0.0011572697, 0, 0.99992216, 0, 1, 0, -0.99992216, 0, 0.0011572697, 22.902496, 0, 12.501494)
+loop = false
+
+[node name="TruckSpawnPoint" type="Marker3D" parent="Path3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.280523, 0, 12.48724)
+
+[node name="DeliveryTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="PackageObjects" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.839947, 0, 2.1289303)
+
+[node name="PackageSpawn1" type="Marker3D" parent="PackageObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41080433, 0.032423258)
+
+[node name="PackageSpawn2" type="Marker3D" parent="PackageObjects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4213538, 0.66681266)
+
+[connection signal="timeout" from="DeliveryTimer" to="." method="_on_delivery_timer_timeout"]

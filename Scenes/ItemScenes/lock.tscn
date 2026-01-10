@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://bj41eh05vsqgf"]
+[gd_scene load_steps=8 format=4 uid="uid://bj41eh05vsqgf"]
 
 [ext_resource type="Texture2D" uid="uid://dpwq1tun53l6f" path="res://MovingTruckMeshes/movingtruck_silvertexture.jpg" id="1_gabov"]
 
@@ -77,12 +77,23 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_iul14")
 
-[node name="Lock" type="MeshInstance3D"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gabov"]
+height = 0.019195557
+radius = 0.057617188
+
+[node name="RigidBody3D" type="StaticBody3D" groups=["Lock"]]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+
+[node name="Lock" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.05770601, 6.643305e-10, 0, -8.713366e-09, -0.0043996614, 0, 0, 0, 0.05770601, 0, 0, 0)
 mesh = SubResource("ArrayMesh_5vky6")
 skeleton = NodePath("")
 
-[node name="Cube" type="MeshInstance3D" parent="."]
+[node name="Cube" type="MeshInstance3D" parent="Lock"]
 transform = Transform3D(5.3591947e-07, -0.7875225, 0, 0.9990262, 4.2246003e-07, 0, 0, 0, 0.19986334, 0.00502494, -1.8316222, -0.010951996)
 mesh = SubResource("ArrayMesh_wcs17")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0050811768, 0)
+shape = SubResource("CylinderShape3D_gabov")

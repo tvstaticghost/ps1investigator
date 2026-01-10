@@ -20,6 +20,7 @@ GameManager="*res://Scripts/Globals/GameManager.gd"
 SignalManager="*res://Scripts/Globals/SignalManager.gd"
 Databases="*res://Scripts/Globals/Databases.gd"
 InternetDatabase="*res://Scripts/Globals/InternetDatabase.gd"
+Inventory="*res://Scripts/Globals/Inventory.gd"
 
 [display]
 
@@ -46,6 +47,13 @@ Cabinet=""
 Stove=""
 Fridge=""
 Computer=""
+Truck=""
+Box=""
+Item=""
+Lock=""
+Camera=""
+MotionLight=""
+Flashlight=""
 
 [input]
 

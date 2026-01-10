@@ -1,6 +1,14 @@
-[gd_scene load_steps=13 format=4 uid="uid://cxf6rsh58673h"]
+[gd_scene load_steps=21 format=4 uid="uid://cxf6rsh58673h"]
 
 [ext_resource type="Texture2D" uid="uid://bvc2ayvy2gelu" path="res://MovingTruckMeshes/movingtruck_boxwithtapetexture.png" id="1_3lnhn"]
+[ext_resource type="Script" uid="uid://c7snyqu6aqp33" path="res://Scripts/ItemScripts/box.gd" id="1_snxwo"]
+[ext_resource type="PackedScene" uid="uid://bj41eh05vsqgf" path="res://Scenes/ItemScenes/lock.tscn" id="3_elac4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3lnhn"]
+size = Vector3(0.15442467, 0.1394043, 0.005355835)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_snxwo"]
+size = Vector3(0.15460205, 0.0043335557, 0.15161133)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v784q"]
 resource_name = "boxtexture"
@@ -169,27 +177,229 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_lqpch")
 
-[node name="LockBox" type="MeshInstance3D"]
-transform = Transform3D(0.08028758, 0, 0, 0, 0.06901983, 0, 0, 0, 0.076060526, 0.6326934, 1.4441382, 3.4279559)
+[sub_resource type="Animation" id="Animation_elac4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LockBox/TopLid2_001:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.021438343, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LockBox/TopLid1_001:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.01817271, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LockBox/InnerBoxFold2_001:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.0022349923)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LockBox/InnerBoxFold1_001:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.01294053)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape3D6:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RigidBody3D:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_snxwo"]
+resource_name = "open_box"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LockBox/TopLid2_001:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.021438343, 0, 0), Vector3(-2.2893715, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LockBox/TopLid1_001:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.01817271, 0, 0), Vector3(2.3855896, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LockBox/InnerBoxFold2_001:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.0022349923), Vector3(0, 0, 2.5419838)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LockBox/InnerBoxFold1_001:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.01294053), Vector3(0, 0, -2.6476548)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape3D6:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RigidBody3D:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.099999994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tak5h"]
+_data = {
+&"RESET": SubResource("Animation_elac4"),
+&"open_box": SubResource("Animation_snxwo")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_elac4"]
+size = Vector3(0.2290039, 0.16799927, 0.22859192)
+
+[node name="RigidBody3D" type="RigidBody3D"]
+script = ExtResource("1_snxwo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001660347, 0.07019043, 0.07361603)
+shape = SubResource("BoxShape3D_3lnhn")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00010681152, 0.07019043, -0.07588704)
+shape = SubResource("BoxShape3D_3lnhn")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.07839471, 0.07019043, -0.00037993118)
+shape = SubResource("BoxShape3D_3lnhn")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.0779258, 0.07019043, -0.00037993118)
+shape = SubResource("BoxShape3D_3lnhn")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0009765625, 0.00012794137, 0.001953125)
+shape = SubResource("BoxShape3D_snxwo")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0012512207, 0.13795106, -0.0018310547)
+shape = SubResource("BoxShape3D_snxwo")
+disabled = true
+
+[node name="RigidBody3D" parent="." instance=ExtResource("3_elac4")]
+transform = Transform3D(0.795, 0, 0, 0, 0.795, 0, 0, 0, 0.795, 0, 0.018243738, 0)
+visible = false
+
+[node name="LockBox" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.08028758, 0, 0, 0, 0.06901983, 0, 0, 0, 0.076060526, 0, 0.06953505, 0)
 mesh = SubResource("ArrayMesh_snxwo")
 skeleton = NodePath("")
 
-[node name="InnerBoxFold1_001" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.99994516, 0.012939891, 0, -0.012940543, 0.9998948, 0, 0, 0, 1, 0.99205494, 0.97361755, -3.8146973e-06)
+[node name="InnerBoxFold1_001" type="MeshInstance3D" parent="LockBox"]
+transform = Transform3D(0.999945, 0.012939885, 0, -0.01294054, 0.9998944, 0, 0, 0, 0.99999994, 0.99205494, 0.97361743, -3.814697e-06)
 mesh = SubResource("ArrayMesh_elac4")
 skeleton = NodePath("")
 
-[node name="InnerBoxFold2_001" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.9999975, 0.0022349905, 0, -0.0022349905, 0.9999975, 0, 0, 0, 1, -0.99205494, 0.97361755, -3.8146973e-06)
+[node name="InnerBoxFold2_001" type="MeshInstance3D" parent="LockBox"]
+transform = Transform3D(0.9999975, 0.0022349905, 0, -0.0022349905, 0.9999975, 0, 0, 0, 0.99999994, -0.99205494, 0.97361743, -3.814697e-06)
 mesh = SubResource("ArrayMesh_tak5h")
 skeleton = NodePath("")
 
-[node name="TopLid1_001" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.99980587, -0.018172344, 0, 0.018171182, 0.9998698, 0, 0.9920559, 0.9920502)
+[node name="TopLid1_001" type="MeshInstance3D" parent="LockBox"]
+transform = Transform3D(1, 0, 0, 0, 0.9998056, -0.018172342, 0, 0.018171176, 0.9998697, 0, 0.99205565, 0.9920502)
 mesh = SubResource("ArrayMesh_n1rq4")
 skeleton = NodePath("")
 
-[node name="TopLid2_001" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.99973, 0.021437746, 0, -0.021435838, 0.999819, 0, 0.9920559, -0.9920578)
+[node name="TopLid2_001" type="MeshInstance3D" parent="LockBox"]
+transform = Transform3D(1, 0, 0, 0, 0.9997299, 0.021437744, 0, -0.021435836, 0.99981886, 0, 0.99205565, -0.9920578)
 mesh = SubResource("ArrayMesh_5dxim")
 skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_tak5h")
+}
+
+[node name="Area3D" type="Area3D" parent="." groups=["Box"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0021972656, 0.084854126, 0.007347107)
+shape = SubResource("BoxShape3D_elac4")

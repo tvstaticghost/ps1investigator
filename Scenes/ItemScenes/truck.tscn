@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=4 uid="uid://dmve4ykasbvav"]
+[gd_scene load_steps=23 format=4 uid="uid://dmve4ykasbvav"]
 
 [ext_resource type="Texture2D" uid="uid://bvbb0ebwib58x" path="res://MovingTruckMeshes/movingtruck_truckbacktexture.png" id="1_gwhxf"]
 [ext_resource type="Texture2D" uid="uid://b637fi5cfdwec" path="res://MovingTruckMeshes/movingtruck_truckside.jpg" id="2_oqcef"]
 [ext_resource type="Texture2D" uid="uid://0pxhmbw1v771" path="res://MovingTruckMeshes/movingtruck_fronttrucktexture.png" id="3_css18"]
 [ext_resource type="Texture2D" uid="uid://ck6c7jmbcvbvx" path="res://MovingTruckMeshes/movingtruck_truckwheel.png" id="4_bg54a"]
+[ext_resource type="Script" uid="uid://do8ytubtewwo8" path="res://Scripts/truck.gd" id="4_oqcef"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hx5ep"]
 resource_name = "truckback"
@@ -280,10 +281,21 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_c74hk")
 
-[node name="Truck" type="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8946483, 0)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oqcef"]
+transparency = 1
+albedo_color = Color(0.31764707, 0.31764707, 0.31764707, 0.2)
+emission_enabled = true
+emission = Color(0.45490196, 0.44705883, 0.40392157, 1)
+emission_energy_multiplier = 2.62
+
+[sub_resource type="QuadMesh" id="QuadMesh_css18"]
+material = SubResource("StandardMaterial3D_oqcef")
+
+[node name="Truck" type="MeshInstance3D" groups=["Truck"]]
+transform = Transform3D(1.355, 0, 0, 0, 1.355, 0, 0, 0, 1.355, 0, 1.2113786, 0)
 mesh = SubResource("ArrayMesh_jm85j")
 skeleton = NodePath("")
+script = ExtResource("4_oqcef")
 
 [node name="BackLeftTire" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0400003, -0.58999985, 0.6636128)
@@ -304,3 +316,21 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5488372, -0.58999985, 0.6636128)
 mesh = SubResource("ArrayMesh_se3xa")
 skeleton = NodePath("")
+
+[node name="LeftHeadLight" type="MeshInstance3D" parent="."]
+transform = Transform3D(-5.6824803e-09, 0, -0.07, 0, 0.08, 0, 0.13, 0, -3.059797e-09, -2.1084695, -0.12081814, -0.53136396)
+mesh = SubResource("QuadMesh_css18")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="LeftHeadLight"]
+transform = Transform3D(-7.9137664, 0, -1.2382766e-06, 0, 12.5, 0, 6.918434e-07, 0, -14.164233, 0, 0, 0)
+light_energy = 5.0
+spot_range = 100.554
+
+[node name="RightHeadLight" type="MeshInstance3D" parent="."]
+transform = Transform3D(-5.6824803e-09, 0, -0.07, 0, 0.08, 0, 0.13, 0, -3.059797e-09, -2.1084695, -0.12081814, 0.5354816)
+mesh = SubResource("QuadMesh_css18")
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="RightHeadLight"]
+transform = Transform3D(-7.692308, 0, -3.6210625e-07, 0, 12.5, 0, 6.7248305e-07, 0, -14.285714, -0.033429146, 0, 0)
+light_energy = 5.0
+spot_range = 100.0

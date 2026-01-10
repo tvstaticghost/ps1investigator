@@ -14,3 +14,8 @@ signal power_on
 
 #Store and Item signals
 signal start_delivery
+signal stop_truck
+signal start_truck
+signal despawn_truck
+signal spawn_package
+signal add_item_to_inventory

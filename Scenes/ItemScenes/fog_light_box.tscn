@@ -1,6 +1,14 @@
-[gd_scene load_steps=13 format=4 uid="uid://bemyvreuk8goh"]
+[gd_scene load_steps=21 format=4 uid="uid://bemyvreuk8goh"]
 
+[ext_resource type="Script" uid="uid://c7snyqu6aqp33" path="res://Scripts/ItemScripts/box.gd" id="1_6xism"]
 [ext_resource type="Texture2D" uid="uid://bvc2ayvy2gelu" path="res://MovingTruckMeshes/movingtruck_boxwithtapetexture.png" id="1_640wf"]
+[ext_resource type="PackedScene" uid="uid://bwwqha0k8al3q" path="res://Scenes/ItemScenes/fog_light.tscn" id="2_7fv5w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_640wf"]
+size = Vector3(0.015380859, 0.39134216, 0.4540863)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7fv5w"]
+size = Vector3(0.45552063, 0.0026111603, 0.510437)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v784q"]
 resource_name = "boxtexture"
@@ -169,27 +177,204 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0mu07")
 
-[node name="FogLightBox" type="MeshInstance3D"]
-transform = Transform3D(0.22781843, 0, 0, 0, 0.19584583, 0, 0, 0, 0.25818938, 0, 0, 0)
+[sub_resource type="Animation" id="Animation_tohqu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FogLightBox/TopLid2_003:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0008806846, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FogLightBox/TopLid1_003:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.002454012, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FogLightBox/InnerBoxFold2_003:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.016860897)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FogLightBox/InnerBoxFold1_003:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.0016853958)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape3D6:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_6xism"]
+resource_name = "open_box"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FogLightBox/TopLid2_003:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.0008806846, 0, 0), Vector3(-2.1530302, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FogLightBox/TopLid1_003:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.002454012, 0, 0), Vector3(2.2162435, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FogLightBox/InnerBoxFold2_003:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.016860897), Vector3(0, 0, 2.5260663)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FogLightBox/InnerBoxFold1_003:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.0016853958), Vector3(0, 0, -2.4354773)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape3D6:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7cctq"]
+_data = {
+&"RESET": SubResource("Animation_tohqu"),
+&"open_box": SubResource("Animation_6xism")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6xism"]
+size = Vector3(0.60595703, 0.47375488, 0.6705322)
+
+[node name="RigidBody3D" type="RigidBody3D"]
+script = ExtResource("1_6xism")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22180176, 0.19732666, -9.1552734e-05)
+shape = SubResource("BoxShape3D_640wf")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2207254, 0.19817352, -9.1552734e-05)
+shape = SubResource("BoxShape3D_640wf")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.00043018162, 0.19876099, -0.25039884)
+shape = SubResource("BoxShape3D_640wf")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.00043018162, 0.19804382, 0.25072315)
+shape = SubResource("BoxShape3D_640wf")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.340576e-05, 0.002357483, 0.0027770996)
+shape = SubResource("BoxShape3D_7fv5w")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.340576e-05, 0.39019495, 0.0027770996)
+shape = SubResource("BoxShape3D_7fv5w")
+disabled = true
+
+[node name="FogLightBox" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.22781843, 0, 0, 0, 0.19584583, 0, 0, 0, 0.25818938, 0, 0.19618459, 0)
 mesh = SubResource("ArrayMesh_7fv5w")
 skeleton = NodePath("")
 
-[node name="InnerBoxFold1_003" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.99999857, 0.001685395, 0, -0.001685395, 0.99999857, 0, 0, 0, 1, 0.99205446, 0.9736171, 0)
+[node name="InnerBoxFold1_003" type="MeshInstance3D" parent="FogLightBox"]
+transform = Transform3D(0.99999857, 0.001685395, 0, -0.001685395, 0.99999857, 0, 0, 0, 0.9999998, 0.9920545, 0.97361696, 0)
 mesh = SubResource("ArrayMesh_6xism")
 skeleton = NodePath("")
 
-[node name="InnerBoxFold2_003" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.9999069, 0.016859485, 0, -0.016860923, 0.9998216, 0, 0, 0, 1, -0.9920546, 0.9736171, 0)
+[node name="InnerBoxFold2_003" type="MeshInstance3D" parent="FogLightBox"]
+transform = Transform3D(0.9999067, 0.016859485, 0, -0.016860921, 0.9998215, 0, 0, 0, 0.99999994, -0.9920546, 0.97361696, 0)
 mesh = SubResource("ArrayMesh_tohqu")
 skeleton = NodePath("")
 
-[node name="TopLid1_003" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.99999696, 0.0024540094, 0, -0.0024540094, 0.99999696, 0, 0.9920554, 0.992054)
+[node name="TopLid1_003" type="MeshInstance3D" parent="FogLightBox"]
+transform = Transform3D(1, 0, 0, 0, 0.9999967, 0.002454009, 0, -0.0024540087, 0.9999968, 0, 0.9920554, 0.992054)
 mesh = SubResource("ArrayMesh_7cctq")
 skeleton = NodePath("")
 
-[node name="TopLid2_003" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9999996, -0.00088068447, 0, 0.00088068447, 0.9999996, 0, 0.9920554, -0.992054)
+[node name="TopLid2_003" type="MeshInstance3D" parent="FogLightBox"]
+transform = Transform3D(1, 0, 0, 0, 0.9999994, -0.00088068424, 0, 0.0008806843, 0.99999934, 0, 0.9920554, -0.992054)
 mesh = SubResource("ArrayMesh_5s38y")
 skeleton = NodePath("")
+
+[node name="RigidBody3D" parent="." instance=ExtResource("2_7fv5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12219915, 0.19037664, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7cctq")
+}
+
+[node name="Area3D" type="Area3D" parent="." groups=["Box"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021240234, 0.26312256, -0.0079956055)
+shape = SubResource("BoxShape3D_6xism")

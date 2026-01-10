@@ -89,6 +89,9 @@ func _process(_delta: float) -> void:
 		interact_overlay.visible = true
 		
 		var hit := ray_cast_3d.get_collider()
+		if !is_instance_valid(hit):
+			return
+		
 		if hit.is_in_group("Lamp"):
 			if Input.is_action_just_pressed("Interact"):
 				print("LAMP")
@@ -116,6 +119,15 @@ func _process(_delta: float) -> void:
 		elif hit.is_in_group("Computer"):
 			if Input.is_action_just_pressed("Interact"):
 				hit.get_parent().use_computer(global_position)
+		elif hit.is_in_group("Box"):
+			if Input.is_action_just_pressed("Interact"):
+				print("WWHATS IN THE BOXXX!")
+				hit.get_parent().open_box()
+		elif hit.is_in_group("Item"):
+			if Input.is_action_just_pressed("Interact"):
+				#TODO START HERE AND PICK UP ITEMS PROBABLY DESPAWN BOX
+				print("Oh look an item from amazon")
+				hit.get_parent().despawn_box()
 	else:
 		reticle_dim = true
 		interact_overlay.visible = false

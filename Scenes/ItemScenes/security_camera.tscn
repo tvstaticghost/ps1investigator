@@ -1,4 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://c5s2rwvow0ecg"]
+[gd_scene load_steps=8 format=4 uid="uid://c5s2rwvow0ecg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wwfdo"]
+size = Vector3(0.29440308, 0.0758667, 0.10913086)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rjywk"]
+size = Vector3(0.20162964, 0.037475586, 0.080322266)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmg2j"]
 resource_name = "black"
@@ -102,7 +108,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_p6ugq")
 
-[node name="SecurityCamera" type="MeshInstance3D"]
-transform = Transform3D(0.019028593, 0, 0, 0, 0.016200893, 0, 0, 0, 0.019028593, 0, 0, 0)
+[node name="RigidBody3D" type="StaticBody3D" groups=["Camera"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005722046, 0.14517212, 0.0013427734)
+shape = SubResource("BoxShape3D_wwfdo")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.9813598, 0.19217941, 0, -0.19217941, 0.9813598, 0, 0, 0, 1, 0.081364356, 0.07339118, -0.00036621094)
+shape = SubResource("BoxShape3D_rjywk")
+
+[node name="SecurityCamera" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.019028593, 0, 0, 0, 0.016200893, 0, 0, 0, 0.019028593, 0, 0.09470953, 0)
 mesh = SubResource("ArrayMesh_wwfdo")
 skeleton = NodePath("")

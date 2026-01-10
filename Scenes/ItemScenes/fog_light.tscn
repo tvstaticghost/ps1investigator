@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://bwwqha0k8al3q"]
+[gd_scene load_steps=11 format=4 uid="uid://bwwqha0k8al3q"]
 
 [ext_resource type="Texture2D" uid="uid://dpwq1tun53l6f" path="res://MovingTruckMeshes/movingtruck_silvertexture.jpg" id="1_exx8a"]
 [ext_resource type="Texture2D" uid="uid://b3pn7dekqhwps" path="res://MovingTruckMeshes/movingtruck_foglighttexture.png" id="2_paopg"]
@@ -104,7 +104,41 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_0i1q3")
 
-[node name="FogLight" type="MeshInstance3D"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_exx8a"]
+radius = 0.025390625
+height = 0.20942688
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_paopg"]
+height = 0.0138549805
+radius = 0.080566406
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_exx8a"]
+height = 0.013031006
+radius = 0.08544922
+
+[node name="RigidBody3D" type="StaticBody3D" groups=["MotionLight"]]
+
+[node name="FogLight" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.4461222e-08, 0.0059410366, 0, -0.07792271, 1.8649893e-09, 0, 0, 0, 0.07792271, 0, 0, 0)
 mesh = SubResource("ArrayMesh_7pvi2")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.22200802, -0.8657538, -0.44853413, 0.97504485, -0.19712357, -0.102126755, -2.0107843e-08, -0.46001384, 0.8879118, -0.09932323, -0.028192777, -0.09450826)
+shape = SubResource("CapsuleShape3D_exx8a")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.1312536, -0.8828522, 0.45093745, 0.9750447, -0.19712357, -0.10212676, 0.17905319, 0.42627975, 0.88669366, -0.09506844, -0.029102657, 0.091148645)
+shape = SubResource("CapsuleShape3D_exx8a")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.00039672852, 1.7341129e-11, 0)
+shape = SubResource("CylinderShape3D_paopg")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.23843183, -0.8801693, -0.41042972, 0.9711593, -0.21609259, -0.100765616, -1.8473232e-08, -0.42261833, 0.9063079, -0.1951328, -0.04209439, -0.13378778)
+shape = SubResource("CylinderShape3D_exx8a")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.17808467, -0.8754234, 0.44935524, 0.96639293, -0.24163061, -0.08774635, 0.1853932, 0.4186273, 0.8890336, -0.19718003, -0.04209439, 0.13523974)
+shape = SubResource("CylinderShape3D_exx8a")

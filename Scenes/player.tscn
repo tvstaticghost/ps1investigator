@@ -8,6 +8,7 @@ _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.75, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f60y1"]
+radius = 0.4345703
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_v0iea")
