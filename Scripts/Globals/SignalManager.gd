@@ -19,3 +19,5 @@ signal start_truck
 signal despawn_truck
 signal spawn_package
 signal add_item_to_inventory
+signal update_inventory
+signal enable_movement

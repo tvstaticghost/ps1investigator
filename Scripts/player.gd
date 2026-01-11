@@ -6,6 +6,8 @@ extends CharacterBody3D
 @onready var texture_rect: TextureRect = $CanvasLayer/Control/TextureRect
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 @onready var camera_3d: Camera3D = $Head/Camera3D
+@onready var flashlight: SpotLight3D = $Head/Flashlight
+
 
 @export var position_curve: Curve
 
@@ -26,6 +28,11 @@ var using_computer: bool = false
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	SignalManager.sit_at_computer.connect(use_computer)
+	SignalManager.enable_movement.connect(enable_movement)
+	
+func enable_movement():
+	can_move = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func toggle_reticle_alpha():
 	if reticle_dim:
@@ -80,9 +87,15 @@ func stop_using_computer():
 	
 	collision_shape_3d.disabled = false
 	can_move = true
+	using_computer = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		
 func _process(_delta: float) -> void:
+	#Toggle flashlight
+	if Input.is_action_just_pressed("flashlight") and Inventory.has_flashlight:
+		flashlight.visible = !flashlight.visible
+	
+	#Player interaction logic
 	if ray_cast_3d.is_colliding():
 		reticle_dim = false
 		toggle_reticle_alpha()

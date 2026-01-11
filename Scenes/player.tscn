@@ -28,6 +28,12 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0
 target_position = Vector3(0, -1.755, 0)
 collide_with_areas = true
 
+[node name="Flashlight" type="SpotLight3D" parent="Head"]
+visible = false
+light_color = Color(0.9014823, 0.8517575, 0.7010209, 1)
+shadow_enabled = true
+spot_range = 8.0
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="CanvasLayer"]

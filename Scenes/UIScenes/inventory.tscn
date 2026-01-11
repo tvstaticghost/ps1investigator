@@ -1,0 +1,373 @@
+[gd_scene load_steps=16 format=3 uid="uid://davmev0yj05vk"]
+
+[ext_resource type="Texture2D" uid="uid://clq5mhmqltvuj" path="res://UIImages/Inventory.png" id="1_hlx4f"]
+[ext_resource type="Script" uid="uid://c1qmk588q6tit" path="res://Scenes/UIScenes/inventory.gd" id="1_jvp1q"]
+[ext_resource type="Texture2D" uid="uid://busqumwfwlama" path="res://UIImages/FlashlightContainer.png" id="2_jvp1q"]
+[ext_resource type="FontFile" uid="uid://qbqiwhmhnfm2" path="res://Fonts/DMSans-VariableFont_opsz,wght.ttf" id="3_li8xo"]
+[ext_resource type="Texture2D" uid="uid://dvx7sgq7m1xxw" path="res://UIImages/LockContainer.png" id="4_flso2"]
+[ext_resource type="Texture2D" uid="uid://bd8ye7k38osii" path="res://UIImages/LightsContainer.png" id="5_tms7j"]
+[ext_resource type="Texture2D" uid="uid://dtn5hg4wsren2" path="res://UIImages/SecurityContainer.png" id="6_3awln"]
+[ext_resource type="Texture2D" uid="uid://bao4ky3tr5wgy" path="res://UIImages/buttontemplate.png" id="6_li8xo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_njc15"]
+texture = ExtResource("1_hlx4f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iin7o"]
+texture = ExtResource("2_jvp1q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fm4y6"]
+texture = ExtResource("4_flso2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_flso2"]
+texture = ExtResource("6_li8xo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mfpwk"]
+texture = ExtResource("5_tms7j")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qg8i5"]
+texture = ExtResource("6_3awln")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hlx4f"]
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = -4.0
+offset_right = 13.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jvp1q")
+
+[node name="InventoryContainer" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -318.5
+offset_top = -176.5
+offset_right = 318.5
+offset_bottom = 176.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_njc15")
+
+[node name="FlashlightContainer" type="Panel" parent="InventoryContainer"]
+layout_mode = 0
+offset_left = 6.5
+offset_top = 33.5
+offset_right = 305.5
+offset_bottom = 174.5
+theme_override_styles/panel = SubResource("StyleBoxTexture_iin7o")
+
+[node name="ItemLabel" type="Label" parent="InventoryContainer/FlashlightContainer"]
+layout_mode = 0
+offset_left = 173.0
+offset_top = 6.0
+offset_right = 293.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_li8xo")
+theme_override_font_sizes/font_size = 22
+text = "Flashlight"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemDesc" type="Label" parent="InventoryContainer/FlashlightContainer"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 112.0
+offset_right = 289.0
+offset_bottom = 138.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_li8xo")
+theme_override_font_sizes/font_size = 14
+text = "Press 'F' to toggle flashlight"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemDesc2" type="Label" parent="InventoryContainer/FlashlightContainer"]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 35.0
+offset_right = 288.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_li8xo")
+theme_override_font_sizes/font_size = 13
+text = "Can come in
+handy during a
+power outage."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DoorLockContainer" type="Panel" parent="InventoryContainer"]
+layout_mode = 0
+offset_left = 320.5
+offset_top = 33.5
+offset_right = 630.5
+offset_bottom = 174.5
+theme_override_styles/panel = SubResource("StyleBoxTexture_fm4y6")
+
+[node name="ItemLabel" type="Label" parent="InventoryContainer/DoorLockContainer"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 8.0
+offset_right = 304.0
+offset_bottom = 37.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_li8xo")
+theme_override_font_sizes/font_size = 22
+text = "Door Lock"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LockQuanLabel" type="Label" parent="InventoryContainer/DoorLockContainer"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 84.0
+offset_right = 170.0
+offset_bottom = 108.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_li8xo")
+theme_override_font_sizes/font_size = 18
+text = "x1"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="DoorLockEquipButton" type="Button" parent="InventoryContainer/DoorLockContainer"]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 113.0
+offset_right = 292.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_li8xo")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxTexture_flso2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_flso2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_flso2")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_flso2")
+theme_override_styles/focus = SubResource("StyleBoxTexture_flso2")
+text = "Equip"
+
+[node name="ItemDesc" type="Label" parent="InventoryContainer/DoorLockContainer"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 112.0
+offset_right = 182.0
+offset_bottom = 138.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_li8xo")
+theme_override_font_sizes/font_size = 14
+text = "Use on any exterior door"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemDesc2" type="Label" parent="InventoryContainer/DoorLockContainer"]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 31.0
+offset_right = 298.0
+offset_bottom = 91.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_li8xo")
+theme_override_font_sizes/font_size = 13
+text = "Keeps intruders
+out... for a while"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MotionLightContainer" type="Panel" parent="InventoryContainer"]
+layout_mode = 0
+offset_left = 6.5
+offset_top = 188.5
+offset_right = 305.5
+offset_bottom = 346.5
+theme_override_styles/panel = SubResource("StyleBoxTexture_mfpwk")
+
+[node name="ItemLabel" type="Label" parent="InventoryContainer/MotionLightContainer"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 6.0
+offset_right = 298.0
+offset_bottom = 67.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_li8xo")
+theme_override_font_sizes/font_size = 22
+text = "Motion 
+Light"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MotionLightEquipButton" type="Button" parent="InventoryContainer/MotionLightContainer"]
+layout_mode = 0
+offset_left = 204.0
+offset_top = 130.0
+offset_right = 281.0
+offset_bottom = 153.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_li8xo")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxTexture_flso2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_flso2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_flso2")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_flso2")
+theme_override_styles/focus = SubResource("StyleBoxTexture_flso2")
+text = "Equip"
+
+[node name="LightQuanLabel" type="Label" parent="InventoryContainer/MotionLightContainer"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 96.0
+offset_right = 164.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_li8xo")
+theme_override_font_sizes/font_size = 18
+text = "x1"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ItemDesc" type="Label" parent="InventoryContainer/MotionLightContainer"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 128.0
+offset_right = 182.0
+offset_bottom = 154.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_li8xo")
+theme_override_font_sizes/font_size = 14
+text = "Use on exterior light mount"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemDesc2" type="Label" parent="InventoryContainer/MotionLightContainer"]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 65.0
+offset_right = 292.0
+offset_bottom = 125.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_li8xo")
+theme_override_font_sizes/font_size = 13
+text = "illuminates when 
+motion is detected"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SecurityCameraContainer" type="Panel" parent="InventoryContainer"]
+layout_mode = 0
+offset_left = 320.5
+offset_top = 188.5
+offset_right = 630.5
+offset_bottom = 346.5
+theme_override_styles/panel = SubResource("StyleBoxTexture_qg8i5")
+
+[node name="ItemLabel" type="Label" parent="InventoryContainer/SecurityCameraContainer"]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 6.0
+offset_right = 307.0
+offset_bottom = 67.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_li8xo")
+theme_override_font_sizes/font_size = 22
+text = "Security
+Camera"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CameraEquipButton" type="Button" parent="InventoryContainer/SecurityCameraContainer"]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 129.0
+offset_right = 295.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_li8xo")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxTexture_flso2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_flso2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_flso2")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_flso2")
+theme_override_styles/focus = SubResource("StyleBoxTexture_flso2")
+text = "Equip"
+
+[node name="CamQuanLabel" type="Label" parent="InventoryContainer/SecurityCameraContainer"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 96.0
+offset_right = 170.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_li8xo")
+theme_override_font_sizes/font_size = 18
+text = "x1"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ItemDesc" type="Label" parent="InventoryContainer/SecurityCameraContainer"]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 118.0
+offset_right = 215.0
+offset_bottom = 159.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_li8xo")
+theme_override_font_sizes/font_size = 11
+text = "Use on exterior camera mount
+Check E-mail for software download"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemDesc2" type="Label" parent="InventoryContainer/SecurityCameraContainer"]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 65.0
+offset_right = 301.0
+offset_bottom = 125.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_li8xo")
+theme_override_font_sizes/font_size = 13
+text = "Keep an eye on
+your property"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 864.0
+offset_top = 155.0
+offset_right = 887.0
+offset_bottom = 175.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hlx4f")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_hlx4f")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hlx4f")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hlx4f")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hlx4f")
+
+[connection signal="pressed" from="InventoryContainer/DoorLockContainer/DoorLockEquipButton" to="." method="_on_door_lock_equip_button_pressed"]
+[connection signal="pressed" from="InventoryContainer/MotionLightContainer/MotionLightEquipButton" to="." method="_on_motion_light_equip_button_pressed"]
+[connection signal="pressed" from="InventoryContainer/SecurityCameraContainer/CameraEquipButton" to="." method="_on_camera_equip_button_pressed"]
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]

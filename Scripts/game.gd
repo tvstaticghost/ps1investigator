@@ -19,6 +19,9 @@ var spawn_switcher: bool = false
 @onready var truck_spawn_point: Marker3D = $Path3D/TruckSpawnPoint
 @onready var path_follow_3d: PathFollow3D = $Path3D/PathFollow3D
 @onready var delivery_timer: Timer = $DeliveryTimer
+@onready var package_objects: Node3D = $PackageObjects
+@onready var inventory: Control = $CanvasLayer/Inventory
+@onready var player: CharacterBody3D = $Player
 
 var truck_spawned: bool = false
 var stop_truck: bool = false
@@ -34,11 +37,16 @@ func _ready() -> void:
 	SignalManager.spawn_package.connect(spawn_package)
 	
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("light_off"):
-		SignalManager.power_out.emit()
+	#Toggle inventory
+	if Input.is_action_just_pressed("inventory") and !player.using_computer:
+		inventory.visible = !inventory.visible
 		
-	if Input.is_action_just_pressed("light_on"):
-		SignalManager.power_on.emit()
+		if inventory.visible:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			player.can_move = false
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			player.can_move = true
 		
 func _physics_process(delta: float) -> void:
 	if truck_spawned:
@@ -89,7 +97,7 @@ func despawn_truck():
 func item_spawn(box, offset):
 	var box_inst = box.instantiate()
 	
-	add_child(box_inst)
+	package_objects.add_child(box_inst)
 	
 	if spawn_switcher:
 		box_inst.global_position = package_spawn_1.global_position
